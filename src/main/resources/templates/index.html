@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar</title>
+  <link rel="stylesheet" th:href="@{css/estilos.css}" />
+</head>
+
+<body class="">
+  <!--NAVBAR INICIO-->
+  <div
+       class="sticky box-border top-0 w-[90vw] mt-6 bg-white hover:translate-y-1 transition duration-500 group rounded-xl hover:bg-black p-4 left-0 right-0 mx-auto shadow-2xl flex items-center justify-start md:justify-between lg:justify-between xl:justify-between 2xl:justify-between text-center z-30">
+    <button onclick="abrirModalInicio()" class="lg:pl-8 w-9 h-9 group-hover:invert rounded-full">
+      <svg class="h-6 w-6 mx-auto" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 124 124"
+           style="enable-background: new 0 0 512 512" xml:space="preserve">
+        <g>
+          <g xmlns="http://www.w3.org/2000/svg">
+            <path d="M112,6H12C5.4,6,0,11.4,0,18s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,6,112,6z" fill="#050404"
+                  data-original="#000000" class="" />
+            <path d="M112,50H12C5.4,50,0,55.4,0,62c0,6.6,5.4,12,12,12h100c6.6,0,12-5.4,12-12C124,55.4,118.6,50,112,50z"
+                  fill="#050404" data-original="#000000" class="" />
+            <path d="M112,94H12c-6.6,0-12,5.4-12,12s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,94,112,94z" fill="#050404"
+                  data-original="#000000" class="" />
+          </g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+        </g>
+      </svg>
+    </button>
+    <a class="flex flex-shrink md:ml-20 lg:ml-20 xl:ml-20 items-center" th:href="@{index.html}">
+      <img th:src="@{img/luz.png}" class="w-12 h-12 rounded-full group-hover:invert transition duration-500" alt="" />
+      <h2
+          class="hidden group-hover:italic hover:underline group-hover:text-white lg:block ml-2 font-bold font-mono text-xl">
+        Modistería D.L.
+      </h2>
+    </a>
+    <div class="flex flex-nowrap mr-5">
+      <button onclick="abrirModalInicio();"
+              class="hidden hover:underline group-hover:text-white md:block lg:block ml-2 font-semibold font-mono text-base">
+        Ingreso</button><button id="modalRegistro"
+              class="hidden hover:underline group-hover:text-white md:block lg:block ml-2 font-semibold text-base font-mono">
+        Registro
+      </button>
+    </div>
+  </div>
+  <!--NAVBAR FINAL-->
+
+  <!--Inicio CONTENEDOR PÁGINA-->
+  <div class="mt-10">
+    <div class="h-[30rem] w-screen flex items-center justify-center bg-gray-900">
+      <h2
+          class="text-white outline-8 outline outline-offset-8 animate-fadeIn outline-white font-black font-mono text-5xl">
+        "Creando estilo, cosiendo emociones."
+      </h2>
+    </div>
+  </div>
+  <!--Fin CONTENEDOR PÁGINA-->
+  <!--INICIO SESIÓN INICIO-->
+  <div id="modalInicio" class="h-screen w-screen hidden bg-black/60 fixed inset-0 z-40">
+    <div id="modalInicioContent" class="fixed animate-entrando right-0 top-0 z-50 h-screen bg-white">
+      <div class="flex-no-wrap mb-3 flex items-baseline justify-between p-3">
+        <h3 class="text-xl font-semibold">Entrar</h3>
+        <button class="hover:text-gray-300 font-medium" onclick="cerrarModalInicio();">
+          Cerrar
+        </button>
+      </div>
+      <hr />
+      <form action="" method="post" class="mt-4">
+        <label class="mb-3 ml-6 mr-16 block whitespace-nowrap text-sm font-normal">
+          Nombre de usuario o correo electrónico
+          <span class="text-red-600">*</span>
+        </label>
+        <input type="text"
+               class="mx-auto mb-8 block h-9 w-[90%] border border-gray-300 p-3 text-sm text-gray-500 shadow-lg focus:outline-none" />
+        <label class="mb-3 ml-6 mr-16 block whitespace-nowrap text-sm font-normal first-letter:text-base">
+          Contraseña
+          <span class="text-red-600">*</span>
+        </label>
+        <input type="password"
+               class="mx-auto mb-10 block h-9 w-[90%] border border-gray-300 p-3 text-sm text-gray-500 shadow-lg focus:outline-none" />
+        <input type="submit" value="Iniciar sesión"
+               class="mx-auto mb-4 block h-9 w-[90%] bg-blue-950 text-white transition duration-1000 hover:bg-blue-900 hover:font-semibold hover:shadow-sm hover:shadow-blue-800" />
+      </form>
+      <div class="text-center">
+        <a class="mt-5 cursor-pointer text-sm text-blue-400 hover:border-b hover:border-blue-500 hover:text-blue-500">¿Has
+          olvidado tu contraseña?</a>
+      </div>
+
+      <hr class="mb-7 mt-4" />
+      <div class="text-center">
+        <img th:src="@{/img/user.png}" class="h-10 w-10 opacity-30 mx-auto mb-2" alt="" />
+        <h2 class="text-sm mb-6">¿No tienes cuenta aún?</h2>
+        <a href="" class="border-b-2 pb-1 hover:border-blue-700 border-blue-600">Registrarse</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BURGUER MENU INICIO -->
+  <div id="modalInicio" class="h-screen w-screen hidden bg-black/60 fixed inset-0 z-40">
+    <div id="modalInicioContent" class="fixed animate-entrando right-0 top-0 z-50 h-screen bg-white">
+      <div class="flex-no-wrap mb-3 flex items-baseline justify-between p-3">
+        <h3 class="text-xl font-semibold">Entrar</h3>
+        <button class="hover:text-gray-300 font-medium" onclick="cerrarModalInicio();">
+          Cerrar
+        </button>
+      </div>
+      <hr />
+      <form action="" method="post" class="mt-4">
+        <label class="mb-3 ml-6 mr-16 block whitespace-nowrap text-sm font-normal">
+          Nombre de usuario o correo electrónico
+          <span class="text-red-600">*</span>
+        </label>
+        <input type="text"
+               class="mx-auto mb-8 block h-9 w-[90%] border border-gray-300 p-3 text-sm text-gray-500 shadow-lg focus:outline-none" />
+        <label class="mb-3 ml-6 mr-16 block whitespace-nowrap text-sm font-normal first-letter:text-base">
+          Contraseña
+          <span class="text-red-600">*</span>
+        </label>
+        <input type="password"
+               class="mx-auto mb-10 block h-9 w-[90%] border border-gray-300 p-3 text-sm text-gray-500 shadow-lg focus:outline-none" />
+        <input type="submit" value="Iniciar sesión"
+               class="mx-auto mb-4 block h-9 w-[90%] bg-blue-950 text-white transition duration-1000 hover:bg-blue-900 hover:font-semibold hover:shadow-sm hover:shadow-blue-800" />
+      </form>
+      <div class="text-center">
+        <a class="mt-5 cursor-pointer text-sm text-blue-400 hover:border-b hover:border-blue-500 hover:text-blue-500">¿Has
+          olvidado tu contraseña?</a>
+      </div>
+
+      <hr class="mb-7 mt-4" />
+      <div class="text-center">
+        <img th:src="@{/img/user.png}" class="h-10 w-10 opacity-30 mx-auto mb-2" alt="" />
+        <h2 class="text-sm mb-6">¿No tienes cuenta aún?</h2>
+        <a href="" class="border-b-2 pb-1 hover:border-blue-700 border-blue-600">Registrarse</a>
+      </div>
+    </div>
+  </div>
+  <!-- BURGUER MENU FIN -->
+
+  <!-- Scripts -->
+  <script th:src="@{/js/modals.js}"></script>
+</body>
+
+</html>

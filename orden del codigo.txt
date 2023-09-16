@@ -1,0 +1,24 @@
+1. Primero me dirijo a la interface de la cita ya que en la interface estamos heredando los metodos de CRUD
+
+@Repository
+public interface InterfaceCita extends CrudRepository<Citas, Integer> {
+    List<Citas>BuscarFecha(String fecha); //Ofrece metodos crud para la entidad
+    //citas, integer es el indentificador de la entidad
+}
+
+
+2. Luego me dirijo al interface y service de cita para poner tambien el metodo de "BuscarFecha"
+public interface Interface_cita_service {
+    public List<Citas>listar();
+    public List<Citas>listaID(Integer id);
+    public int guardar(Citas C);
+    public void eliminar(Integer id);
+    public List<Citas>BuscarFecha(String fecha);
+}
+
+
+luego me dirijo al servicio de la cita para llevar a cabo el metodo que creamos anteriormente 
+@Override
+    public List<Citas>BuscarFecha(String fecha) {
+        return data.BuscarFecha(fecha);
+    }

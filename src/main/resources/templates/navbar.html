@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>navbar</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+  <!-- Navbar inicio versión sin REGISTRAR -->
+  <div
+       class="sticky box-border top-0 w-[90vw] mt-6 bg-slate-100 hover:-translate-y-1 transition duration-500 group rounded-full hover:bg-black p-4 left-0 right-0 mx-auto shadow-2xl flex items-center justify-start md:justify-between lg:justify-between xl:justify-between 2xl:justify-between text-center z-30">
+    <button class="lg:pl-8 w-9 h-9 group-hover:invert rounded-full">
+      <svg class="h-6 w-6 mx-auto" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 124 124"
+           style="enable-background: new 0 0 512 512" xml:space="preserve">
+        <g>
+          <g xmlns="http://www.w3.org/2000/svg">
+            <path d="M112,6H12C5.4,6,0,11.4,0,18s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,6,112,6z" fill="#050404"
+                  data-original="#000000" class="" />
+            <path d="M112,50H12C5.4,50,0,55.4,0,62c0,6.6,5.4,12,12,12h100c6.6,0,12-5.4,12-12C124,55.4,118.6,50,112,50z"
+                  fill="#050404" data-original="#000000" class="" />
+            <path d="M112,94H12c-6.6,0-12,5.4-12,12s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,94,112,94z" fill="#050404"
+                  data-original="#000000" class="" />
+          </g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+        </g>
+      </svg>
+    </button>
+    <a class="flex flex-shrink md:ml-20 lg:ml-20 xl:ml-20 items-center" th:href="@{index.html}">
+      <img th:src="@{img/luz.png}" class="w-12 h-12 rounded-full group-hover:invert transition duration-500" alt="" />
+      <h2
+          class="hidden group-hover:italic hover:underline group-hover:text-white lg:block ml-2 font-bold font-mono text-xl">
+        Modistería D.L.
+      </h2>
+    </a>
+    <div class="flex flex-nowrap mr-5">
+      <button onclick="abrirModalInicio();"
+              class="hidden hover:underline group-hover:text-white md:block lg:block ml-2 font-semibold font-mono text-base">
+        Ingreso</button><button id="modalRegistro"
+              class="hidden hover:underline group-hover:text-white md:block lg:block ml-2 font-semibold text-base font-mono">
+        Registro
+      </button>
+    </div>
+  </div>
+  <!-- Navbar inicio versión sin REGISTRAR END -->
+
+  <!-- Navbar inicio versión registrado -->
+  <div
+       class="sticky box-border top-0 w-[90vw] mt-6 bg-slate-100 hover:-translate-y-1 transition duration-500 group rounded-full hover:bg-black p-4 left-0 right-0 mx-auto shadow-2xl flex items-center justify-start md:justify-between lg:justify-between xl:justify-between 2xl:justify-between text-center z-30">
+    <button class="lg:pl-8 w-9 h-9 group-hover:invert rounded-full">
+      <svg class="h-6 w-6 mx-auto" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 124 124"
+           style="enable-background: new 0 0 512 512" xml:space="preserve" class="">
+        <g>
+          <g xmlns="http://www.w3.org/2000/svg">
+            <path d="M112,6H12C5.4,6,0,11.4,0,18s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,6,112,6z" fill="#050404"
+                  data-original="#000000" class="" />
+            <path d="M112,50H12C5.4,50,0,55.4,0,62c0,6.6,5.4,12,12,12h100c6.6,0,12-5.4,12-12C124,55.4,118.6,50,112,50z"
+                  fill="#050404" data-original="#000000" class="" />
+            <path d="M112,94H12c-6.6,0-12,5.4-12,12s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,94,112,94z" fill="#050404"
+                  data-original="#000000" class="" />
+          </g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+          <g xmlns="http://www.w3.org/2000/svg"></g>
+        </g>
+      </svg>
+    </button>
+    <a class="flex flex-shrink md:ml-20 lg:ml-20 xl:ml-20 items-center" href="index.html">
+      <img src="img/luz.png" class="w-12 h-12 rounded-full group-hover:invert transition duration-500" alt="" />
+      <h2
+          class="hidden group-hover:italic hover:underline group-hover:text-white lg:block ml-2 font-bold font-mono text-xl">
+        Modistería D.L.
+      </h2>
+    </a>
+    <button class="mr-14 md:block lg:block hidden group-hover:invert">
+      <span style="font-size: 2.3rem" class="material-symbols-outlined">
+        account_circle
+      </span>
+    </button>
+  </div>
+  <!-- Navbar inicio versión registrado final -->
+</body>
+
+</html>
