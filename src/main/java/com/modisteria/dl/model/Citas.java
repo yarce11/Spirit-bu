@@ -21,6 +21,9 @@ public class Citas {
     @Column(nullable = false)
     private String objetivo;
 
+    @Column(nullable = true)
+    private String estado;
+
     @Column(nullable = false)
     private String usuario;
 
@@ -87,6 +90,14 @@ public class Citas {
         this.fechaStr = fechaStr;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public LocalDateTime convertirFecha() {
         if (fechaStr != null && !fechaStr.isEmpty()) { // Verificar si fechaStr no es nulo ni vacío
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
@@ -94,6 +105,12 @@ public class Citas {
         } else {
             System.out.println("El valor de fechaStr es nulo o vacío.");
             return null; // Manejar el caso en que fechaStr sea nulo o vacío
+        }
+    }
+    @PrePersist
+    public void prePersist() {
+        if (estado == null) {
+            estado = "Pendiente";
         }
     }
 
