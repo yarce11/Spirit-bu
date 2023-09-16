@@ -27,7 +27,7 @@ public class Citas {
     @Column(nullable = false)
     private String usuario;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String imagen;
 
     public Citas() {

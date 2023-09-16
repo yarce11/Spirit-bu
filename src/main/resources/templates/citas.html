@@ -97,8 +97,8 @@
   <!-- INICIO MODALES -->
 
   <!-- NODAL AGREGAR  -->
-  <form id="modalAgregar" name="agregar"
-    class="  z-50 fixed inset-0 hidden bg-black/50 flex-nowrap justify-center items-center w-screen h-screen">
+  <form id="modalAgregar" name="agregar" th:action="@{/guardar}" th:each="cita : ${citas}" th:object="${cita}"
+    class=" z-50 fixed inset-0 hidden bg-black/50 flex-nowrap justify-center items-center w-screen h-screen">
 
     <!-- Slide 1 -->
     <div id="slide1" class="z-[100] animate-zoomOut  bg-gray-800 rounded-lg w-[27rem] h-60  ">
@@ -116,10 +116,10 @@
       <!-- Formulario agregar cita -->
 
       <div class="">
-        <div class=" flex items-center  justify-center mt-12"><input
+        <div class=" flex items-center  justify-center mt-12"><input th:field="*{citas.usuario}"
             class="texto inline-block  border-none  text-white text-xl
-                             p-2 bg-gray-800 outline-pink-800 shadow-md shadow-pink-800  focus:outline-pink-800 outline focus:outline-2 rounded-lg font-extrabold" type="text"
-            name="" placeholder="Digita el nombre...">
+                             p-2 bg-gray-800 outline-pink-800 shadow-md shadow-pink-800  focus:outline-pink-800 outline focus:outline-2 rounded-lg font-extrabold" type="text" name=""
+            placeholder="Digita el nombre...">
           <button title="Siguiente" type="button" onclick="cambiarSlide1()"
             class="boton mt-1.5  ml-3 hover:translate-x-1 transition duration-300  hover:text-pink-700  text-pink-900"><span
               style="font-size: 2rem;" class="material-symbols-outlined">
@@ -149,14 +149,18 @@
             class="boton mt-1.5  hover:-translate-x-1 transition duration-300  hover:text-pink-700  text-pink-900 "><span
               style="font-size: 2rem;" class="material-symbols-outlined">
               navigate_before
-            </span></button><input readonly
-            class="texto ml-2 inline-block  border-none  text-white  text-xl w-52
-                                     p-2 bg-gray-800 outline-pink-800 shadow-md shadow-pink-800  focus:outline-pink-800 outline focus:outline-2 rounded-lg font-extrabold"
-            type="text" name="" placeholder="D/M/A/Hh:Mm">
-          <button title="Agregar fecha"
+            </span></button><input th:field="*{cita.fechaStr}" type="datetime-local" name="fechaStr" id="fechaStr">
+          <!----<button title="Agregar fecha"
             class="text-white hover:text-gray-400 hover:scale-95 transition duration-300  mt-1.5 ml-1 mr-3">
             <span style="font-size: 2.5rem;" class="material-symbols-outlined"> calendar_month </span>
           </button>
+          CLASE DE EL CALENDARIO
+          readonly
+class="texto ml-2 inline-block  border-none  text-white  text-xl w-52
+                                     p-2 bg-gray-800 outline-pink-800 shadow-md shadow-pink-800  focus:outline-pink-800 outline focus:outline-2 rounded-lg font-extrabold"
+          ----->
+
+
           <button title="Siguiente" type="button" onclick="cambiarSlide2()"
             class="boton mt-1.5  hover:translate-x-1 transition duration-300  hover:text-pink-700  text-pink-900 "><span
               style="font-size: 2rem;" class="material-symbols-outlined">
@@ -188,7 +192,7 @@
               style="font-size: 2rem;" class="material-symbols-outlined">
               navigate_before
             </span></button>
-          <textarea name=""
+          <textarea name="" th:field="*{cita.objetivo}"
             class="texto p-2 inline-block  border-none  text-white text-lg
                               bg-gray-800 outline-pink-800 shadow-md shadow-pink-800  focus:outline-pink-800 outline focus:outline-2  font-extrabold overflow-hidden resize-none  whitespace-normal  text-md w-[80%]  focus:border-none rounded-lg"
             rows="4" placeholder="Ingresa el objetivo de la cita..."></textarea>
