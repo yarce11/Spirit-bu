@@ -20,10 +20,10 @@ public class CitasController {
     public String listar(Model model){
         List<Citas>citas=service.listar();
         model.addAttribute("citas", citas);
-        return "citas";
+        return "form";
     }
     @GetMapping("/new")
-    public String agregar(Model model){
+    public String agregar(Model model) {
         model.addAttribute("citas", new Citas());
         return "form";
     }

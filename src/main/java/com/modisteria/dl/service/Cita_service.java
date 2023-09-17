@@ -23,13 +23,14 @@ public class Cita_service implements Interface_cita_service {
     }
     @Override
     public int guardar(Citas C) {
-        int res=0;
-        Citas cita =data.save(C);
-        if (!cita.equals(null)){
-            res=1;
-        }
-        return 0;
+    int res = 0;
+    Citas cita = data.save(C);
+    if (cita != null) {
+        res = 1;
     }
+    return res;
+}
+
     @Override
     public void eliminar(Integer id) {
 
