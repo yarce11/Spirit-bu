@@ -77,7 +77,6 @@
           <br>
           <h3 th:text="${#temporals.format(cita.fecha, ' - MM-dd HH:mm')}" class="text-xl"></h3>
           <div class="ml-auto mr-3 opacity-0 transition-opacity delay-200 duration-700 group-hover:opacity-100">
-            <a th:href="@{/editar/}+${cita.id}">Editar</a>
             <button onclick="abrirModalEditar()" class="material-symbols-outlined cursor-pointer" title="Editar">
               edit
             </button>
@@ -98,7 +97,7 @@
   <!-- INICIO MODALES -->
 
   <!-- NODAL AGREGAR  -->
-  <form id="modalAgregar" name="agregar" th:action="@{/guardar}" th:object="${cita}"
+  <form id="modalAgregar" name="agregar" th:action="@{/guardar}" th:object="${citas}"
     class="  z-50 fixed inset-0 hidden bg-black/50 flex-nowrap justify-center items-center w-screen h-screen">
 
     <!-- Slide 1 -->

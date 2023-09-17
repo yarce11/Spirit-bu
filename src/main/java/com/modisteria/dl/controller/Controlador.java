@@ -33,6 +33,7 @@ public class Controlador {
     }
     @PostMapping("/guardar")
     public String guardar(@Validated Citas C, @RequestParam("fechaStr") String fechaStr, Model model) {
+        model.addAttribute("citas", new Citas());
         if (fechaStr != null && !fechaStr.isEmpty()) { // Verifica si fechaStr no es nulo ni vacío
             LocalDateTime fecha = C.convertirFecha();
             C.setFecha(fecha);
@@ -44,6 +45,7 @@ public class Controlador {
         service.guardar(C);
         return "redirect:/listar"; // Redirige a la URL "/listar" después de guardar los datos
     }
+    /*
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable int id, Model model){
         Optional<Citas> cita = service.listaID(id);
@@ -51,7 +53,7 @@ public class Controlador {
 
         return "citas";
     }
-
+    */
 
 
 }
