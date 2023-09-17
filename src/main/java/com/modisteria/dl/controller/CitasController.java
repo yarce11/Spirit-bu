@@ -7,17 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
-
-import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping
-public class Controlador {
+public class CitasController {
     @Autowired
     private Cita_service service;
     @GetMapping("/listar")
