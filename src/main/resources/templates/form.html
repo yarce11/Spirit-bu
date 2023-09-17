@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form th:action="@{/guardar}" th:object="${citas}" method="post" enctype="multipart/form-data">
+        <h3>Agendar cita</h3>
+        <div>
+            <label>Fecha</label>
+            <input th:field="*{fechaStr}" type="datetime-local" name="fechaStr" id="fechaStr" />
+        </div>
+
+        <div>
+            <label>Objetivo</label>
+            <input th:field="*{objetivo}" type="text">
+        </div>
+        <div>
+            <label>Usuario</label>
+            <input th:field="*{usuario}" type="text">
+        </div>
+        <div>
+            <label>Imagen (Referencia)</label>
+            <input th:field="*{imagen}" type="text">
+        </div>
+        <input type="submit" value="Agendar">
+        <a th:href="@{/listar}" type="button">Volver</a>
+    </form>
+</body>
+
+</html>

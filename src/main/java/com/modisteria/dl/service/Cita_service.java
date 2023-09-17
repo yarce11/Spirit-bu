@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service // Agrega la anotación @Service para que Spring reconozca esta clase como un bean
 public class Cita_service implements Interface_cita_service {
@@ -17,8 +18,8 @@ public class Cita_service implements Interface_cita_service {
         return (List<Citas>)data.findAll();
     }
     @Override
-    public List<Citas> listaID(Integer id) {
-        return null;
+    public Optional<Citas> listaID(Integer id) {
+        return data.findById(id);
     }
     @Override
     public int guardar(Citas C) {
