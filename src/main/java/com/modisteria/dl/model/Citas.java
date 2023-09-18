@@ -34,7 +34,9 @@ public class Citas {
 
     }
 
-    public Citas(int id, LocalDateTime fecha, String objetivo, String usuario, String imagen) {
+    public Citas(int id, LocalDateTime fecha, String objetivo
+
+            , String usuario, String imagen) {
         this.id = id;
         this.fecha = fecha;
         this.objetivo = objetivo;
@@ -58,11 +60,13 @@ public class Citas {
         this.fecha = fecha;
     }
 
-    public String getObjetivo() {
+    public String  getObjetivo() {
         return objetivo;
     }
 
-    public void setObjetivo(String objetivo) {
+    public void setObjetivo(String objetivo
+
+    ) {
         this.objetivo = objetivo;
     }
 
@@ -113,7 +117,5 @@ public class Citas {
             estado = "Pendiente";
         }
     }
-
-
 
 }
