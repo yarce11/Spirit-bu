@@ -14,7 +14,7 @@
   <!--NAVBAR INICIO-->
   <div
        class="sticky box-border top-0 w-[90vw] mt-6 bg-white hover:translate-y-1 transition duration-500 group rounded-xl hover:bg-black p-4 left-0 right-0 mx-auto shadow-2xl flex items-center justify-start md:justify-between lg:justify-between xl:justify-between 2xl:justify-between text-center z-30">
-    <button onclick="abrirModalInicio()" class="lg:pl-8 w-9 h-9 group-hover:invert rounded-full">
+    <button onclick="abrirBurguer()" class="lg:pl-8 w-9 h-9 group-hover:invert rounded-full">
       <svg class="h-6 w-6 mx-auto" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 124 124"
            style="enable-background: new 0 0 512 512" xml:space="preserve">
@@ -74,7 +74,7 @@
   </div>
   <!--Fin CONTENEDOR PÁGINA-->
   <!--INICIO SESIÓN INICIO-->
-  <div id="modalInicio" class="h-screen w-screen hidden bg-black/60 fixed inset-0 z-40">
+  <div id="modalInicio" onclick="cerrarModalInicio();" class="h-screen w-screen hidden bg-black/60 fixed inset-0 z-40">
     <div id="modalInicioContent" class="fixed animate-entrando right-0 top-0 z-50 h-screen bg-white">
       <div class="flex-no-wrap mb-3 flex items-baseline justify-between p-3">
         <h3 class="text-xl font-semibold">Entrar</h3>
@@ -114,7 +114,7 @@
   </div>
 
   <!-- REGISTRO INICIO -->
-  <div id="modalRegistro"
+  <div onclick="cerrarModalRegistro()" id="modalRegistro"
        class="h-screen w-screen hidden bg-slate-500  animate-[fadeIn_0.4s] items-center justify-center fixed inset-0 z-40 font-mono">
     <button onclick="cerrarModalRegistro()"
             class="absolute top-2 right-7 text-white hover:scale-90 hover:text-gray-200 transition duration-500"><span
@@ -167,7 +167,7 @@
           <div class="flex items-center  mt-5">
             <input type="password" name="" required
                    class="w-[90%] border-b-4 focus:appearance-none pb-2 text-xl texto text-white focus:border-b-slate-500 focus:outline-none  placeholder:text-gray-200 bg-slate-400"
-                   placeholder="Ingresa el número teléfonico" id="">
+                   placeholder="Ingresa la contraseña" id="">
             <button type="submit" title="siguiente" class="boton hidden ml-3s hover:text-slate-500 text-white "><span
                     style="font-size: 2.5rem;" class="  material-symbols-outlined">
                 arrow_circle_right
@@ -177,6 +177,49 @@
       </div>
     </form>
   </div>
+
+  <!-- Burguer MENU INICIO -->
+  <button id="burguer" onclick="cerrarBurguer()"
+          class="h-screen w-screen cursor-default  hidden  bg-black/60 fixed inset-0 z-40">
+    <div id="burguerMenu" class="fixed w-72 animate-entrandoIzq left-0 top-0 z-50 h-screen bg-white font-mono ">
+      <div class="text-xl border-b-4 h-20   flex items-center justify-center border-blue-600 bg-gray-100  ">
+        <h3>MENÚ </h3>
+      </div>
+      <a
+         class="text-lg p-4 border-b-2 block w-full text-start hover:border-gray-200 hover:bg-gray-100 border-gray-100 h-16 cursor-pointer">
+        <h2>Inicio</h2>
+      </a>
+      <a
+         class="text-lg p-4 border-b-2 block w-full text-start hover:border-gray-200 hover:bg-gray-100 border-gray-100 h-16 cursor-pointer">
+        <h2>Citas</h2>
+      </a>
+      <a
+         class="text-lg p-4 border-b-2 block w-full text-start hover:border-gray-200 hover:bg-gray-100 border-gray-100 h-16 cursor-pointer">
+        <h2>Catálogo</h2>
+      </a>
+      <a
+         class="text-lg p-4 border-b-2 block w-full text-start hover:border-gray-200 hover:bg-gray-100 border-gray-100 h-16 cursor-pointer">
+        <h2>Nosotros</h2>
+      </a>
+      <a
+         class="text-lg p-4 border-b-2 block w-full text-start hover:border-gray-200 hover:bg-gray-100 border-gray-100 h-16 cursor-pointer">
+        <h2>Contacto</h2>
+      </a>
+      <a
+         class="text-lg p-4 border-b-2 block w-full text-start hover:border-gray-200 hover:bg-gray-100 border-gray-100 h-16 cursor-pointer">
+        <h2 class="flex items-center"><span class=" material-symbols-outlined">
+            person
+          </span>Ingreso</h2>
+      </a>
+      <a
+         class="text-lg p-4 border-b-2 block w-full text-start hover:border-gray-200 hover:bg-gray-100 border-gray-100 h-16 cursor-pointer">
+        <h2 class="flex items-center"><span class=" material-symbols-outlined">
+            person_2
+          </span>Registro</h2>
+      </a>
+    </div>
+  </button>
+
   <!-- BURGUER MENU FIN -->
 
   <!-- Scripts -->

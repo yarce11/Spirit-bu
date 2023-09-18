@@ -13,6 +13,8 @@ module.exports = {
         zoomOut: "zoomOut 0.5s ease-in-out",
         leaving: "leaving 1s ease-in-out",
         entrando: "entrando 1s ease-in-out",
+        leavingIzq: "leavingIzq 0.5s ease-in-out",
+        entrandoIzq: "entrandoIzq 0.5s ease-in-out",
       },
       keyframes: {
         enteringModal: {
@@ -49,6 +51,26 @@ module.exports = {
           "100%": {
             top: 0,
             right: "0",
+          },
+        },
+        leavingIzq: {
+          "0%": {
+            top: 0,
+            left: 0,
+          },
+          "100%": {
+            top: 0,
+            left: "-20rem",
+          },
+        },
+        entrandoIzq: {
+          "0%": {
+            top: 0,
+            left: "-20rem",
+          },
+          "100%": {
+            top: 0,
+            left: "0",
           },
         },
         fadeIn: {

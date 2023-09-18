@@ -47,6 +47,20 @@ function cambiarRegistro3() {
   }, 500)
 }
 
+function cerrarBurguer() {
+  
+  burguerMenu.classList.remove("animate-entrandoIzq");
+  burguerMenu.classList.add("animate-leavingIzq");
+  setTimeout(() => {
+    burguer.classList.add("hidden");
+    burguerMenu.classList.remove("animate-leavingIzq");
+    burguerMenu.classList.add("animate-entrandoIzq");
+  }, 400);
+}
+
+function abrirBurguer() {
+    burguer.classList.remove("hidden");
+}
 
 
 
@@ -59,3 +73,5 @@ let correoRegistro = document.getElementById("correoRegistro");
 let numeroRegistro = document.getElementById("numeroRegistro");
 let contraRegistro = document.getElementById("contraRegistro");
 let successRegistro = document.getElementById("successRegistro");
+let burguer = document.getElementById("burguer");
+let burguerMenu = document.getElementById("burguerMenu");
