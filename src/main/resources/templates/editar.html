@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form th:action="@{/citas/{id}(id=$cita.id)}" th:object="${cita}">
+        <div>
+            <label for="">Usuario</label>
+            <input type="text" name="usuario" th:field="*{usuario}">
+        </div>
+        <div>
+            <label for="">Fecha</label>
+            <input type="text">
+        </div>
+        <div>
+            <label for="">Objetivo</label>
+            <input type="text">
+        </div>
+        <div>
+            <label for="">Imagen</label>
+            <input type="text">
+        </div>
+        <div>
+            <label for="">Objetivo</label>
+            <input type="text">
+        </div>
+    </form>
+</body>
+
+</html>

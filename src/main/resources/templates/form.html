@@ -77,10 +77,11 @@
                     <h3 th:text="${#temporals.format(cita.fecha, ' - MM-dd HH:mm')}" class="text-xl"></h3>
                     <div
                         class="ml-auto mr-3 opacity-0 transition-opacity delay-200 duration-700 group-hover:opacity-100">
-                        <button onclick="abrirModalEditar()" class="material-symbols-outlined cursor-pointer"
-                            title="Editar">
+                        <!---button onclick="abrirModalEditar()" th:href="@{/editar/}+${cita.id}"
+                            class="material-symbols-outlined cursor-pointer" title="Editar">
                             edit
-                        </button>
+                        </!---button---->
+                        <!---a th:href="@{/citas/editar/{id}(id=$cita.id)}">Editar</!---a--->
                         <button class="material-symbols-outlined cursor-pointer" title="Borrar"
                             onclick="abrirModalBorrar()">
                             delete
@@ -296,11 +297,12 @@ class="texto ml-2 inline-block  border-none  text-white  text-xl w-52
             <!-- FORMULARIO EDITAR -->
 
             <div class="col-span-4 row-span-3 mx-3">
-                <form action="" class="mt-4 ml-1 font-mono">
+                <form th:action="@{/editar/(id)}" class="mt-4 ml-1 font-mono" th:object="${editarCita}">
                     <div class="flex items-end">
+                        <!--/*@thymesVar id="usuario" type=""*/-->
                         <input type="text" name=""
                             class="border-none text-white text-xl p-1 bg-gray-800 focus:border-none focus:outline-gray-800 rounded-lg font-extrabold"
-                            value="Cristian Vélez" />
+                             />
                         <input type="text" name="" disabled
                             class="border-none ml-2 text-white text-xl p-1 bg-gray-800 w-32 focus:border-none font-extrabold focus:outline-gray-800 rounded-lg"
                             value="14/09/2023" />
