@@ -74,7 +74,7 @@
   </div>
   <!--Fin CONTENEDOR PÁGINA-->
   <!--INICIO SESIÓN INICIO-->
-  <div id="modalInicio" onclick="cerrarModalInicio();" class="h-screen w-screen hidden bg-black/60 fixed inset-0 z-40">
+  <div id="modalInicio" class="h-screen w-screen hidden bg-black/60 fixed inset-0 z-40">
     <div id="modalInicioContent" class="fixed animate-entrando right-0 top-0 z-50 h-screen bg-white">
       <div class="flex-no-wrap mb-3 flex items-baseline justify-between p-3">
         <h3 class="text-xl font-semibold">Entrar</h3>
@@ -108,25 +108,26 @@
       <div class="text-center">
         <img th:src="@{/img/user.png}" class="h-10 w-10 opacity-30 mx-auto mb-2" alt="" />
         <h2 class="text-sm mb-6">¿No tienes cuenta aún?</h2>
-        <a href="" class="border-b-2 pb-1 hover:border-blue-700 border-blue-600">Registrarse</a>
+        <button onclick="abrirModalRegistro()"
+                class="border-b-2 pb-1 hover:border-blue-700 border-blue-600">Registrarse</button>
       </div>
     </div>
   </div>
 
   <!-- REGISTRO INICIO -->
-  <div onclick="cerrarModalRegistro()" id="modalRegistro"
+  <div id="modalRegistro"
        class="h-screen w-screen hidden bg-slate-500  animate-[fadeIn_0.4s] items-center justify-center fixed inset-0 z-40 font-mono">
     <button onclick="cerrarModalRegistro()"
             class="absolute top-2 right-7 text-white hover:scale-90 hover:text-gray-200 transition duration-500"><span
             style="font-size: 3rem;" class="material-symbols-outlined">
         close
       </span></button>
-    <form method="post" action="">
+    <form method="post" th:action="@{/registro}" th:object="${usuario}">
       <div class="bg-slate-400 pl-14 pt-16 shadow-xl shadow-slate-600  w-[35rem] h-60">
         <div id="nombreRegistro" class="  transition-transform duration-1000">
           <h2 class="text-2xl text-slate-500 font-semibold fon">Registro - Nombre </h2>
           <div class="flex items-center  mt-5">
-            <input type="text" name="" required
+            <input type="text" name="" required th:field="*{nombre_completo}"
                    class="w-[90%] border-b-4  pb-2 text-xl texto text-white focus:border-b-slate-500 focus:outline-none  placeholder:text-gray-200 bg-slate-400"
                    placeholder="Ingresa tu nombre completo" id="">
             <button onclick="cambiarRegistro1()" type="button" title="siguiente"
@@ -139,7 +140,7 @@
         <div id="correoRegistro" class=" hidden transition-transform duration-1000 ">
           <h2 class="text-2xl text-slate-500 font-semibold fon">Registro - Correo </h2>
           <div class="flex items-center  mt-5">
-            <input type="email" name="" required
+            <input type="email" name="" th:field="*{correo}" required
                    class="w-[90%] border-b-4  pb-2 text-xl texto text-white focus:border-b-slate-500 focus:outline-none  placeholder:text-gray-200 bg-slate-400"
                    placeholder="Ingresa el correo electrónico" id="">
             <button onclick="cambiarRegistro2()" type="button" title="siguiente"
@@ -152,9 +153,9 @@
         <div id="numeroRegistro" class=" hidden transition-transform duration-1000  ">
           <h2 class="text-2xl text-slate-500 font-semibold fon">Registro - Número </h2>
           <div class="flex items-center  mt-5">
-            <input type="tel" name="" required
+            <input type="text" name="" required
                    class="w-[90%] border-b-4 focus:appearance-none pb-2 text-xl texto text-white focus:border-b-slate-500 focus:outline-none  placeholder:text-gray-200 bg-slate-400"
-                   placeholder="Ingresa el número teléfonico" id="">
+                   placeholder="Ingresa el número teléfonico" th:field="*{telefono}" id="">
             <button onclick="cambiarRegistro3()" type="button" title="siguiente"
                     class="boton hidden ml-3s hover:text-slate-500 text-white "><span style="font-size: 2.5rem;"
                     class="  material-symbols-outlined">
@@ -165,7 +166,7 @@
         <div id="contraRegistro" class=" hidden transition duration-1000  ">
           <h2 class="text-2xl text-slate-500 font-semibold fon">Registro - Contraseña </h2>
           <div class="flex items-center  mt-5">
-            <input type="password" name="" required
+            <input type="password" th:field="*{password}" name="" required
                    class="w-[90%] border-b-4 focus:appearance-none pb-2 text-xl texto text-white focus:border-b-slate-500 focus:outline-none  placeholder:text-gray-200 bg-slate-400"
                    placeholder="Ingresa la contraseña" id="">
             <button type="submit" title="siguiente" class="boton hidden ml-3s hover:text-slate-500 text-white "><span
