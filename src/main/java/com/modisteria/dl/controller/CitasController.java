@@ -24,6 +24,7 @@ public class CitasController {
     }
     @GetMapping("/new")
     public String agregar(Model model) {
+        List<Citas>citas=service.listar();
         model.addAttribute("citas", new Citas());
         return "form";
     }
@@ -39,7 +40,7 @@ public class CitasController {
         }
 
         service.guardar(C);
-        return "redirect:/listar"; // Redirige a la URL "/listar" después de guardar los datos
+        return "redirect:/new"; // Redirige a la URL "/listar" después de guardar los datos
     }
     /*
     @GetMapping("/editar/{id}")
