@@ -3,7 +3,6 @@ package com.modisteria.dl.controller;
 import com.modisteria.dl.model.Citas;
 import com.modisteria.dl.service.Cita_service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -11,23 +10,26 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Controller
+@org.springframework.stereotype.Controller
 @RequestMapping
-public class CitasController {
+public class Controller {
     @Autowired
     private Cita_service service;
-    @GetMapping("/listar")
-    public String listar(Model model){
-        List<Citas>citas=service.listar();
-        model.addAttribute("citas", citas);
-        return "form";
-    }
+
     @GetMapping("/new")
     public String agregar(Model model) {
-        List<Citas>citas=service.listar();
-        model.addAttribute("citas", new Citas());
+        List<Citas> citas = service.listar();
+        model.addAttribute("citas", citas);
+        model.addAttribute("nuevaCita", new Citas());
         return "form";
     }
+
+    /*@GetMapping("/new")
+    public String agregar(Model model) {
+        model.addAttribute("citas", new Citas());
+        return "agregar";
+    }
+*/
     @PostMapping("/guardar")
     public String guardar(@Validated Citas C, @RequestParam("fechaStr") String fechaStr, Model model) {
         model.addAttribute("citas", new Citas());
