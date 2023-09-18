@@ -55,7 +55,7 @@
     <div class="flex flex-nowrap mr-5">
       <button onclick="abrirModalInicio();"
               class="hidden hover:underline group-hover:text-white md:block lg:block ml-2 font-semibold font-mono text-base">
-        Ingreso</button><button id="modalRegistro"
+        Ingreso</button><button onclick="abrirModalRegistro()"
               class="hidden hover:underline group-hover:text-white md:block lg:block ml-2 font-semibold text-base font-mono">
         Registro
       </button>
@@ -115,12 +115,13 @@
 
   <!-- REGISTRO INICIO -->
   <div id="modalRegistro"
-       class="h-screen w-screen  bg-slate-500 flex items-center justify-center fixed inset-0 z-40 font-mono">
-    <button class="absolute top-2 right-7 text-white hover:scale-90 hover:text-gray-200 transition duration-500"><span
+       class="h-screen w-screen hidden bg-slate-500  animate-[fadeIn_0.4s] items-center justify-center fixed inset-0 z-40 font-mono">
+    <button onclick="cerrarModalRegistro()"
+            class="absolute top-2 right-7 text-white hover:scale-90 hover:text-gray-200 transition duration-500"><span
             style="font-size: 3rem;" class="material-symbols-outlined">
         close
       </span></button>
-    <form action="">
+    <form method="post" action="">
       <div class="bg-slate-400 pl-14 pt-16 shadow-xl shadow-slate-600  w-[35rem] h-60">
         <div id="nombreRegistro" class="  transition-transform duration-1000">
           <h2 class="text-2xl text-slate-500 font-semibold fon">Registro - Nombre </h2>
@@ -135,13 +136,39 @@
               </span></button>
           </div>
         </div>
-        <div id="correoRegistro" class=" hidden ">
+        <div id="correoRegistro" class=" hidden transition-transform duration-1000 ">
           <h2 class="text-2xl text-slate-500 font-semibold fon">Registro - Correo </h2>
           <div class="flex items-center  mt-5">
             <input type="email" name="" required
                    class="w-[90%] border-b-4  pb-2 text-xl texto text-white focus:border-b-slate-500 focus:outline-none  placeholder:text-gray-200 bg-slate-400"
                    placeholder="Ingresa el correo electrónico" id="">
-            <button type="button" title="siguiente" class="boton hidden ml-3s hover:text-slate-500 text-white "><span
+            <button onclick="cambiarRegistro2()" type="button" title="siguiente"
+                    class="boton hidden ml-3s hover:text-slate-500 text-white "><span style="font-size: 2.5rem;"
+                    class="  material-symbols-outlined">
+                arrow_circle_right
+              </span></button>
+          </div>
+        </div>
+        <div id="numeroRegistro" class=" hidden transition-transform duration-1000  ">
+          <h2 class="text-2xl text-slate-500 font-semibold fon">Registro - Número </h2>
+          <div class="flex items-center  mt-5">
+            <input type="tel" name="" required
+                   class="w-[90%] border-b-4 focus:appearance-none pb-2 text-xl texto text-white focus:border-b-slate-500 focus:outline-none  placeholder:text-gray-200 bg-slate-400"
+                   placeholder="Ingresa el número teléfonico" id="">
+            <button onclick="cambiarRegistro3()" type="button" title="siguiente"
+                    class="boton hidden ml-3s hover:text-slate-500 text-white "><span style="font-size: 2.5rem;"
+                    class="  material-symbols-outlined">
+                arrow_circle_right
+              </span></button>
+          </div>
+        </div>
+        <div id="contraRegistro" class=" hidden transition duration-1000  ">
+          <h2 class="text-2xl text-slate-500 font-semibold fon">Registro - Contraseña </h2>
+          <div class="flex items-center  mt-5">
+            <input type="password" name="" required
+                   class="w-[90%] border-b-4 focus:appearance-none pb-2 text-xl texto text-white focus:border-b-slate-500 focus:outline-none  placeholder:text-gray-200 bg-slate-400"
+                   placeholder="Ingresa el número teléfonico" id="">
+            <button type="submit" title="siguiente" class="boton hidden ml-3s hover:text-slate-500 text-white "><span
                     style="font-size: 2.5rem;" class="  material-symbols-outlined">
                 arrow_circle_right
               </span></button>

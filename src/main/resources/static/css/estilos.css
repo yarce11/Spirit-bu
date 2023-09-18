@@ -1108,6 +1108,48 @@ video {
   animation: zoomOut 0.5s ease-in-out;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100;
+  }
+}
+
+.animate-\[fadeIn_0\.2s\] {
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100;
+  }
+}
+
+.animate-\[fadeIn_0\.4s\] {
+  animation: fadeIn 0.4s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 100;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-\[fadeOut_0\.4s\] {
+  animation: fadeOut 0.4s;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -1598,6 +1640,10 @@ video {
   opacity: 0.4;
 }
 
+.opacity-100 {
+  opacity: 1;
+}
+
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
@@ -2014,6 +2060,12 @@ video {
 
 .focus\:hidden:focus {
   display: none;
+}
+
+.focus\:appearance-none:focus {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .focus\:border:focus {
