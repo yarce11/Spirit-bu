@@ -8,28 +8,30 @@
 </head>
 
 <body>
-    <form th:action="@{/citas/{id}(id=$cita.id)}" th:object="${cita}">
-        <div>
-            <label for="">Usuario</label>
-            <input type="text" name="usuario" th:field="*{usuario}">
-        </div>
-        <div>
-            <label for="">Fecha</label>
-            <input type="text">
-        </div>
-        <div>
-            <label for="">Objetivo</label>
-            <input type="text">
-        </div>
-        <div>
-            <label for="">Imagen</label>
-            <input type="text">
-        </div>
-        <div>
-            <label for="">Objetivo</label>
-            <input type="text">
-        </div>
-    </form>
+<form th:action="@{/guardarEdicion}" th:object="${citaE}" method="post">
+    <input type="hidden" name="id" th:field="*{id}" />
+    <div>
+        <label>Usuario</label>
+        <input type="text" name="usuario" th:field="*{usuario}" required />
+    </div>
+    <div>
+        <label>Fecha</label>
+        <input type="datetime-local" name="fechaStr" id="fechaStr" th:field="*{fecha}" required>
+    </div>
+
+    <div>
+        <label>Objetivo</label>
+        <input type="text" name="objetivo" th:field="*{objetivo}" required />
+    </div>
+    <div>
+        <label>Estado</label>
+        <input type="text" name="estado" th:field="*{estado}" required />
+    </div>
+    <button type="submit">Enviar</button>
+</form>
+
+
+
 </body>
 
 </html>
