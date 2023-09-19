@@ -8,5 +8,5 @@ import com.modisteria.dl.model.Usuario;
 
 @Repository
 public interface UsuarioRepositorio extends JpaRepository<Usuario,Long> {
-    
+    boolean existsByCorreo(String correo);
 }

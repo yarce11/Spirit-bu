@@ -534,6 +534,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -943,6 +947,10 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -1089,6 +1097,22 @@ video {
   animation: leaving 1s ease-in-out;
 }
 
+@keyframes leavingIzq {
+  0% {
+    top: 0;
+    left: 0;
+  }
+
+  100% {
+    top: 0;
+    left: -20rem;
+  }
+}
+
+.animate-leavingIzq {
+  animation: leavingIzq 0.5s ease-in-out;
+}
+
 @keyframes zoomIn {
   0% {
     transform: scale(1);
@@ -1115,22 +1139,6 @@ video {
 
 .animate-zoomOut {
   animation: zoomOut 0.5s ease-in-out;
-}
-
-@keyframes leavingIzq {
-  0% {
-    top: 0;
-    left: 0;
-  }
-
-  100% {
-    top: 0;
-    left: -20rem;
-  }
-}
-
-.animate-leavingIzq {
-  animation: leavingIzq 0.5s ease-in-out;
 }
 
 .cursor-default {
@@ -1384,12 +1392,56 @@ video {
   background-color: rgb(255 255 255 / 0.8);
 }
 
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
+.bg-green-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
+}
+
+.bg-gray-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+}
+
 .bg-\[url\(\'https\:\/\/i0\.wp\.com\/zeke\.com\/wp-content\/uploads\/2011\/08\/S1150242\.jpg\?w\=1620\&ssl\=1\'\)\] {
   background-image: url('https://i0.wp.com/zeke.com/wp-content/uploads/2011/08/S1150242.jpg?w=1620&ssl=1');
 }
 
 .bg-\[url\(\'https\:\/\/www\.versace\.com\/dw\/image\/v2\/BGWN_PRD\/on\/demandware\.static\/-\/Sites-ver-master-catalog\/default\/dw631d879e\/original\/90_1012146-1A08973_1W000_10_BuckleFormalShirt-Clothing-Versace-online-store_0_2\.jpg\?sw\=850\&q\=85\&strip\=true\'\)\] {
   background-image: url('https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw631d879e/original/90_1012146-1A08973_1W000_10_BuckleFormalShirt-Clothing-Versace-online-store_0_2.jpg?sw=850&q=85&strip=true');
+}
+
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.from-gray-950 {
+  --tw-gradient-from: #030712 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(3 7 18 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.via-gray-900 {
+  --tw-gradient-to: rgb(17 24 39 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #111827 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.to-gray-800 {
+  --tw-gradient-to: #1f2937 var(--tw-gradient-to-position);
 }
 
 .bg-cover {
@@ -1571,6 +1623,16 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+
+.text-green-500 {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
 .underline-offset-4 {
   text-underline-offset: 4px;
 }
@@ -1632,6 +1694,11 @@ video {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .outline {
   outline-style: solid;
 }
@@ -1659,6 +1726,10 @@ video {
 
 .ring-offset-2 {
   --tw-ring-offset-width: 2px;
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition {
@@ -1709,6 +1780,10 @@ video {
 
 .duration-700 {
   transition-duration: 700ms;
+}
+
+.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 .texto:valid + .boton {
