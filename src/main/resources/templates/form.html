@@ -77,14 +77,20 @@
                     <h3 th:text="${#temporals.format(cita.fecha, ' - MM-dd HH:mm')}" class="text-xl"></h3>
                     <div
                         class="ml-auto mr-3 opacity-0 transition-opacity delay-200 duration-700 group-hover:opacity-100">
-                        <button onclick="abrirModalEditar()"
+                        <!--button onclick="abrirModalEditar()"
                             class="material-symbols-outlined cursor-pointer" title="Editar">
                             edit
-                        </button>
-                        <button class="material-symbols-outlined cursor-pointer" title="Borrar"
+                        </button--->
+                        <a th:href="@{'/editar/' + ${cita.id}}" class="material-symbols-outlined cursor-pointer" title="Editar">
+                            edit
+                        </a>
+                        <a th:href="@{'/eliminar/' + ${cita.id}}" class="material-symbols-outlined cursor-pointer" title="Borrar">
+                            delete
+                        </a>
+                        <!---button class="material-symbols-outlined cursor-pointer" title="Borrar"
                             onclick="abrirModalBorrar()">
                             delete
-                        </button>
+                        </button---->
                     </div>
                 </div>
                 <p th:text="${cita.objetivo}" class="mb-5"></p>
