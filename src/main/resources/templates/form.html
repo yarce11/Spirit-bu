@@ -163,7 +163,7 @@
                 <div class=" flex items-center  justify-center mt-12"><input th:field="*{usuario}"
                            class="texto inline-block  border-none  text-white text-xl
                              p-2 bg-gray-800 outline-pink-800 shadow-md shadow-pink-800  focus:outline-pink-800 outline focus:outline-2 rounded-lg font-extrabold" type="text" name=""
-                           placeholder="Digita el nombre...">
+                           placeholder="Digita el nombre..." required>
                     <button title="Siguiente" type="button" onclick="cambiarSlide1()"
                             class="boton mt-1.5  ml-3 hover:translate-x-1 transition duration-300  hover:text-pink-700  text-pink-900"><span
                               style="font-size: 2rem;" class="material-symbols-outlined">
@@ -194,7 +194,7 @@
                               style="font-size: 2rem;" class="material-symbols-outlined">
                             navigate_before
                         </span></button><input th:field="*{fechaStr}" type="datetime-local" name="fechaStr"
-                           id="fechaStr">
+                           id="fechaStr"required>
                     <!----<button title="Agregar fecha"
             class="text-white hover:text-gray-400 hover:scale-95 transition duration-300  mt-1.5 ml-1 mr-3">
             <span style="font-size: 2.5rem;" class="material-symbols-outlined"> calendar_month </span>
@@ -242,7 +242,7 @@ class="texto ml-2 inline-block  border-none  text-white  text-xl w-52
                               class="texto p-2 inline-block  border-none  text-white text-lg
                               bg-gray-800 outline-pink-800 shadow-md shadow-pink-800  focus:outline-pink-800 outline focus:outline-2  font-extrabold overflow-hidden resize-none  whitespace-normal  text-md w-[80%]  focus:border-none rounded-lg"
                               rows="4" placeholder="Ingresa el objetivo de la cita..."
-                              th:field="*{objetivo}"></textarea>
+                              th:field="*{objetivo}" required></textarea>
                     <button title="Siguiente" type="button" onclick="cambiarSlide3()"
                             class="boton mt-1.5  hover:translate-x-1 transition duration-300  hover:text-pink-700  text-pink-900 "><span
                               style="font-size: 2rem;" class="material-symbols-outlined">
@@ -289,7 +289,7 @@ class="texto ml-2 inline-block  border-none  text-white  text-xl w-52
                         </span></button>
                     <!-- SUBMIT FORMULARIO -->
                 </div>
-                <div class="mx-auto"><input th:field="*{imagen}" type="text"><button id="agregarFoto" type="button"
+                <div class="mx-auto"><input th:field="*{imagen}" type="text"required><button id="agregarFoto" type="button"
                             onclick=""
                             class=" transition animate-[fadeIn_0.5s] hidden text-white duration-300 delay-75 text-center bg-purple-700  rounded-md hover:scale-105 hover:shadow-md  hover:shadow-purple-900 w-28 h-10 hover:bg-purple-900 group"><span
                               class="font-semibold group-hover:font-bold group-hover:hidden">Agregar</span>
@@ -340,7 +340,7 @@ class="texto ml-2 inline-block  border-none  text-white  text-xl w-52
             <!-- FORMULARIO EDITAR -->
 
             <div class="col-span-4 row-span-3 mx-3">
-                <form th:action="@{/editar/(id)}" class="mt-4 ml-1 font-mono" th:object="${editarCita}">
+                <form  class="mt-4 ml-1 font-mono" >
                     <div class="flex items-end">
                         <!--/*@thymesVar id="usuario" type=""*/-->
                         <input type="text" name=""
