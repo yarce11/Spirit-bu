@@ -38,4 +38,13 @@ public class Cita_service implements Interface_cita_service {
     public void eliminar(int id) {
         data.deleteById(id);
     }
+    @Override
+    public boolean verificarFecha(Citas nuevaCita){
+        List<Citas>citaExistente = data.findByFecha(nuevaCita.getFecha());
+        return citaExistente.isEmpty(); //IsEmpty() me devuelve una respuesta boolean dependediendo del caso de citaExistente
+    }
+
+
+
+
 }

@@ -1,0 +1,18 @@
+1. en la interface/repository creamos un metodo que nos permita consultar lo
+que queramos en el momento
+Ej:
+List<Citas> findByFecha(LocalDateTime fecha); es un metodo para buscar una cita
+por su fecha
+
+2. Creamos el metodo en la interface_service para verificar lo que queremos consultar
+Ej:
+public boolean verificarFecha(Citas cita); Su parametro es un objeto de citas ya que la consulta
+se va a realizar dentro de este objeto
+
+3. Luego en service implementamos los metodos que creamos anteriormente tanto
+en la interface/repository como en interface_service
+Ej:
+public boolean verificarFecha(Citas nuevaCita){
+        List<Citas>citaExistente = data.findByFecha(nuevaCita.getFecha());
+        return citaExistente.isEmpty();
+    }

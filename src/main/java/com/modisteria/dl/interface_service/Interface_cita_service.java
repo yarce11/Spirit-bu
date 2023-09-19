@@ -9,6 +9,6 @@ public interface Interface_cita_service {
     public int guardar(Citas C);
     public Citas listaID(int id);
     public Citas actualizar(Citas citas);
-
     public void eliminar(int id);
+    public boolean verificarFecha(Citas cita);
 }

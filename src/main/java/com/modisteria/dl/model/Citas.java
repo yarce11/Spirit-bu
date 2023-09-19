@@ -29,6 +29,10 @@ public class Citas {
 
     @Column(nullable = true)
     private String imagen;
+    @Column(nullable = true)
+    private LocalDateTime hora_a;
+    @Column(nullable = true)
+    private LocalDateTime hora_d;
 
     public Citas() {
 
@@ -44,64 +48,49 @@ public class Citas {
         this.imagen = imagen;
     }
 
-    public int getId() {
-        return id;
-    }
 
+    public int getId() {return id;}
     public void setId(int id) {
         this.id = id;
     }
-
     public LocalDateTime getFecha() {
         return fecha;
     }
-
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
-
     public String  getObjetivo() {
         return objetivo;
     }
-
-    public void setObjetivo(String objetivo
-
-    ) {
-        this.objetivo = objetivo;
-    }
-
+    public void setObjetivo(String objetivo) {this.objetivo = objetivo;}
     public String getUsuario() {
         return usuario;
     }
-
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-
     public String getImagen() {
         return imagen;
     }
-
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
-
     public String getFechaStr() {
         return fechaStr;
     }
-
     public void setFechaStr(String fechaStr) {
         this.fechaStr = fechaStr;
     }
-
     public String getEstado() {
         return estado;
     }
-
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
+    public LocalDateTime getHora_a() {return hora_a;}
+    public void setHora_a(LocalDateTime hora_a) {this.hora_a = hora_a;}
+    public LocalDateTime getHora_d() {return hora_d;}
+    public void setHora_d(LocalDateTime hora_d) {this.hora_d = hora_d;}
     public LocalDateTime convertirFecha() {
         if (fechaStr != null && !fechaStr.isEmpty()) { // Verificar si fechaStr no es nulo ni vacío
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
