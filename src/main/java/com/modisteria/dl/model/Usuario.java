@@ -1,10 +1,19 @@
 package com.modisteria.dl.model;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.modisteria.dl.repositorio.RolRepositorio;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
@@ -28,6 +37,10 @@ public class Usuario {
     @Column(name="contraseña",nullable = false)
     private String password;
 
+    @ManyToOne
+    @JoinColumn(name = "id_rol", nullable = true)
+    private Rol rol;
+
 
     //Getters
     public String getNombre_completo() {
@@ -44,6 +57,14 @@ public class Usuario {
     }
     public Long getId() {
         return id;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 
     //setters
@@ -80,6 +101,23 @@ public class Usuario {
     }
     public Usuario() {
         super();
+    }
+
+    public Usuario(Long id, String nombre_completo, String correo, String telefono, String password, Rol rol) {
+        this.id = id;
+        this.nombre_completo = nombre_completo;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.password = password;
+        this.rol = rol;
+    }
+
+    public Usuario(String nombre_completo, String correo, String telefono, String password, Rol rol) {
+        this.nombre_completo = nombre_completo;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.password = password;
+        this.rol = rol;
     }
 
     

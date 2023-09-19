@@ -1,17 +1,10 @@
 package com.modisteria.dl.model;
-
-import java.util.HashSet;
-
-import java.util.Set;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,13 +16,6 @@ public class Rol {
     private Long id;
     @Column(name = "Nombre")
     private String nombre;
-
-    @ManyToMany
-    @JoinTable(name = "Permisos_Rol",
-    joinColumns = @JoinColumn(name="Rol_id"),
-    inverseJoinColumns = @JoinColumn(name = "permiso_id"))
-    private Set<Permiso> permisos = new HashSet<>();
-
 
     public Long getId() {
         return id;
@@ -47,28 +33,22 @@ public class Rol {
         this.nombre = nombre;
     }
 
-    public Set<Permiso> getPermisos() {
-        return permisos;
+
+    public Rol(long id) {
+        this.id = id;
     }
 
-    public void setPermisos(Set<Permiso> permisos) {
-        this.permisos = permisos;
-    }
-
-
-
-    public Rol(String nombre, Set<Permiso> permiso) {
+    public Rol(String nombre) {
         this.nombre = nombre;
-        this.permisos = permiso;
     }
 
     public Rol() {
     }
 
-    public Rol(Long id, String nombre, Set<Permiso> permiso) {
+    public Rol(Long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.permisos = permiso;
+
     }
     
 }

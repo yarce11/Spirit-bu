@@ -83,18 +83,18 @@
         </button>
       </div>
       <hr />
-      <form action="" method="post" class="mt-4">
-        <label class="mb-3 ml-6 mr-16 block whitespace-nowrap text-sm font-normal">
-          Nombre de usuario o correo electrónico
+      <form th:action="@{/inicioSesion}" method="post" th:object="${usuario}" class="mt-4">
+        <label class="mb-3 ml-6 pr-20 mr-16  block whitespace-nowrap text-sm font-normal">
+          Correo electrónico
           <span class="text-red-600">*</span>
         </label>
-        <input type="text"
+        <input type="email" required th:field="*{correo}" autocomplete="off"
                class="mx-auto mb-8 block h-9 w-[90%] border border-gray-300 p-3 text-sm text-gray-500 shadow-lg focus:outline-none" />
         <label class="mb-3 ml-6 mr-16 block whitespace-nowrap text-sm font-normal first-letter:text-base">
           Contraseña
           <span class="text-red-600">*</span>
         </label>
-        <input type="password"
+        <input type="password" th:field="*{password}" autocomplete="off"
                class="mx-auto mb-10 block h-9 w-[90%] border border-gray-300 p-3 text-sm text-gray-500 shadow-lg focus:outline-none" />
         <input type="submit" value="Iniciar sesión"
                class="mx-auto mb-4 block h-9 w-[90%] bg-blue-950 text-white transition duration-1000 hover:bg-blue-900 hover:font-semibold hover:shadow-sm hover:shadow-blue-800" />
