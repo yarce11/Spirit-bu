@@ -12,10 +12,16 @@ import com.modisteria.dl.model.Usuario;
 import com.modisteria.dl.repositorio.UsuarioRepositorio;
 
 @Controller()
-public class RegistroController {
+public class UsuarioController  {
+    private final UsuarioService usuarioService;
+
+    @Autowired
+    public UsuarioController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+
     @Autowired
     UsuarioRepositorio usuarioRepositorio;
-
     @GetMapping("/")
     public String mostrarIndexRegistro(Model model) {
         Usuario usuario = new Usuario();
@@ -49,7 +55,16 @@ public class RegistroController {
          if (usuarioRepositorio.existsByCorreo(usuario.getCorreo())) {
              return "redirect:/registro?status=error";
          }
-         usuarioRepositorio.save(usuario);
+         usuarioService.guardarUsuario(usuario);
+         return "redirect:/registro?status=success";
+     }
+     
+     @PostMapping("/inicioSesion")
+     public String inicioSesion(@ModelAttribute("usuario") Usuario usuario) {
+         if (usuarioRepositorio.existsByCorreo(usuario.getCorreo())) {
+             return "redirect:/inicioSesion?status=success";
+         }
+         
         return "redirect:/registro?status=success";
      }
 

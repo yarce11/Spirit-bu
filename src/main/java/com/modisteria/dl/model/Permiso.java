@@ -1,14 +1,10 @@
 package com.modisteria.dl.model;
 
-import java.util.List;
-
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -28,8 +24,6 @@ public class Permiso {
     @Column(name = "Estado")
     private int estado;
 
-    @ManyToMany(mappedBy = "permisos")
-    private List<Rol> roles;
 
     public Long getId() {
         return id;
