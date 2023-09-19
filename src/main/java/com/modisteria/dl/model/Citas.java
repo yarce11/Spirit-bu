@@ -29,10 +29,7 @@ public class Citas {
 
     @Column(nullable = true)
     private String imagen;
-    @Column(nullable = true)
-    private LocalDateTime hora_a;
-    @Column(nullable = true)
-    private LocalDateTime hora_d;
+
 
     public Citas() {
 
@@ -87,10 +84,7 @@ public class Citas {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    public LocalDateTime getHora_a() {return hora_a;}
-    public void setHora_a(LocalDateTime hora_a) {this.hora_a = hora_a;}
-    public LocalDateTime getHora_d() {return hora_d;}
-    public void setHora_d(LocalDateTime hora_d) {this.hora_d = hora_d;}
+
     public LocalDateTime convertirFecha() {
         if (fechaStr != null && !fechaStr.isEmpty()) { // Verificar si fechaStr no es nulo ni vacío
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
