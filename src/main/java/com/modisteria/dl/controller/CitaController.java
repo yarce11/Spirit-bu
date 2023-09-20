@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
@@ -36,13 +37,8 @@ public class CitaController {
         if (fechaStr != null && !fechaStr.isEmpty()) {
             LocalDateTime fecha = C.convertirFecha();
             C.setFecha(fecha);
-
-            // Obtén el estado predeterminado por su ID (supongamos que el ID es 1, cambia esto según tu configuración)
             Estado estadoPredeterminado = serviceEstado.obtenerEstadoPrePorid(1);
-
-            // Asigna el estado predeterminado a la cita
             C.setEstado(estadoPredeterminado);
-
             if (service.verificarFecha(C)) {
                 LocalDateTime fechaActual = LocalDateTime.now();
                 LocalDateTime fecha1mes = fechaActual.plusMonths(1);
@@ -122,6 +118,7 @@ public class CitaController {
         }
         return "error";
     }
+
 
     @GetMapping("/editar/{id}")
     public String editarCita(@PathVariable("id") int id, Model model) {
