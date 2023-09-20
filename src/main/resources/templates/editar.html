@@ -4,104 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" th:href="@{css/estilos.css}">
+    <title>Editar Cita</title>
+    <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{css/estilos.css}">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body class="scroll-smooth overflow-x-hidden">
     <div
-        class="w-screen h-screen animate-fadeIn bg-[url('https://i0.wp.com/zeke.com/wp-content/uploads/2011/08/S1150242.jpg?w=1620&ssl=1')] bg-cover relative">
+         class="w-screen h-screen animate-fadeIn bg-[url('https://i0.wp.com/zeke.com/wp-content/uploads/2011/08/S1150242.jpg?w=1620&ssl=1')] bg-cover relative">
         <div
-            class="text-white font-mono absolute top-0 flex flex-col items-center justify-center left-0 w-full h-full z-10">
-            <h2 class="text-9xl font-extrabold">Citas</h2>
-            <h3 class="text-2xl font-bold">
-                Administrador
-                <!--agenda con nosotros! (en vista de usuario)-->
-            </h3>
-        </div>
-        <div class="bg-black opacity-40 w-full h-full"></div>
-    </div>
-    <div id="modalEditar"
-        class="fixed inset-0  flex-nowrap justify-center items-center bg-black/60 hidden w-screen h-screen z-40">
-        <!-- Modal Editar Content -->
-        <div id="modalEditarContent"
-            class="bg-gray-800 animate-zoomOut  grid grid-cols-6 grid-rows-4 rounded-xl shadow-inner shadow-gray-800  ">
-            <div
-                class="border-gray-900  bg-gray-900  flex flex-nowrap relative p-6 justify-between items-center border-b-8 pl-5 text-white font-mono font-bold col-span-4">
-                <h1 class="text-3xl">Editar Citas</h1>
-                <button class="absolute  hover:scale-105 items-center flex -top-3 -left-3 rounded-full bg-black"
-                    onclick="cerrarModalEditar()"><span class="material-symbols-outlined" style="font-size: 2rem;">
-                        close
-                    </span></button>
-            </div>
-            <button
-                class="border-l-8 group  border-gray-900 rounded-r-lg bg-[url('https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw631d879e/original/90_1012146-1A08973_1W000_10_BuckleFormalShirt-Clothing-Versace-online-store_0_2.jpg?sw=850&q=85&strip=true')] bg-cover bg-center h-full w-full row-span-4 col-span-2 relative">
-                <div class="absolute  group-hover:block   hidden w-full h-full bg-white/80 inset-0 rounded-r-lg"></div>
-                <div class="absolute group-hover:flex  hidden inset-0  flex-col items-center justify-center"> <span
-                        class="">
-                        <span class="border-2 p-2 rounded-full border-black material-symbols-outlined">
-                            photo_camera
-                        </span></span>
-                    <div class="mt-2 text-lg font-semibold">Editar Foto</div>
+             class="text-white font-mono absolute top-0 flex flex-col items-center justify-center left-0 w-full h-full z-10">
+            <div id="modalEditarContent"
+                 class="bg-gray-800 animate-zoomOut  grid grid-cols-6 grid-rows-4 rounded-xl shadow-inner shadow-gray-800  ">
+                <div
+                     class="border-gray-900  bg-gray-900  flex flex-nowrap relative p-6 justify-between items-center border-b-8 pl-5 text-white font-mono font-bold col-span-4">
+                    <h1 class="text-3xl">Editar Citas</h1>
                 </div>
-            </button>
-            <!-- FORMULARIO EDITAR -->
-
-            <div class="col-span-4 row-span-3 mx-3">
-                <form class="mt-4 ml-1 font-mono" th:action="@{/guardarEdicion}" th:object="${citaE}" method="post">
-                    <div class="flex items-end">
-                        <input type="hidden" name="id" th:field="*{id}" />
-                        <input type="text" name="usuario" required
-                            class="border-none text-white text-xl p-1 bg-gray-800 focus:border-none focus:outline-gray-800 rounded-lg font-extrabold"
-                            th:field="*{usuario}" />
-                        <input type="datetime-local" name="fechaStr" id="fechaStr" required th:field="*{fecha}"
-                            class="border-none ml-2 text-white text-xl p-1 bg-gray-800 w-32 focus:border-none font-extrabold focus:outline-gray-800 rounded-lg"
-                            value="14/09/2023" />
-                        <button class="text-white">
-                            <span class="material-symbols-outlined"> calendar_month </span>
-                        </button>
+                <button
+                        class="border-l-8 group  border-gray-900 rounded-r-lg bg-[url('https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw631d879e/original/90_1012146-1A08973_1W000_10_BuckleFormalShirt-Clothing-Versace-online-store_0_2.jpg?sw=850&q=85&strip=true')] bg-cover bg-center h-full w-full row-span-4 col-span-2 relative">
+                    <div class="absolute  group-hover:block   hidden w-full h-full bg-white/80 inset-0 rounded-r-lg">
                     </div>
-                    <textarea name="objetivo"
-                        class="mt-2 overflow-hidden resize-none border-none whitespace-normal text-white text-md w-full max-h-full min-h-full bg-gray-800 focus:border-none focus:outline-gray-800 rounded-lg"
-                        rows="5" th:field="*{objetivo}"></textarea>
-                    <div>
-                        <label>Estado:</label>
-                        <select th:field="*{estado.id}">
-                            <option th:each="estado : ${estados}"
-                                    th:value="${estado.id}"
-                                    th:text="${estado.nombre_estado}"></option>
-                        </select>
+                    <div class="absolute group-hover:flex  hidden inset-0  flex-col items-center justify-center"> <span
+                              class="">
+                            <span class="border-2 p-2 rounded-full border-black material-symbols-outlined">
+                                photo_camera
+                            </span></span>
+                        <div class="mt-2 text-lg font-semibold">Editar Foto</div>
                     </div>
+                </button>
 
-
-
-                    <div class="flex text-white font-mono text-lg font-bold justify-around mb-5 mt-5">
-                        <button type="button" onclick="cerrarModalEditar()"
-                            class="transition duration-300 delay-75 bg-red-500 h-10 rounded-md hover:scale-105 hover:shadow-md inline-block hover:shadow-red-800 w-28 hover:bg-red-600 group">
-                            <span class="group-hover:font-bold group-hover:hidden">Cancelar</span>
-                            <span class="group-hover:block hidden">
-                                <span class="material-symbols-outlined group-hover:block">
-                                    close
+                <div class="col-span-4 row-span-3 mx-3">
+                    <form class="mt-4 ml-1 font-mono" th:action="@{/guardarEdicion}" th:object="${citaE}" method="post">
+                        <div class="flex items-end">
+                            <input type="hidden" name="id" th:field="*{id}" />
+                            <input type="text" name="usuario" required
+                                   class="border-none text-white text-xl p-1 bg-gray-800 focus:border-none focus:outline-gray-800 rounded-lg font-extrabold"
+                                   th:field="*{usuario}" />
+                            <input type="datetime-local" name="fechaStr" id="fechaStr" required th:field="*{fecha}"
+                                   class="border-none ml-2 text-white text-xl p-1 bg-gray-800 w-32 focus:border-none font-extrabold focus:outline-gray-800 rounded-lg"
+                                   value="14/09/2023" />
+                            <button class="text-white">
+                                <span class="material-symbols-outlined"> calendar_month </span>
+                            </button>
+                        </div>
+                        <textarea name="objetivo"
+                                  class="mt-2 overflow-hidden resize-none border-none whitespace-normal text-white text-md w-full max-h-full min-h-full bg-gray-800 focus:border-none focus:outline-gray-800 rounded-lg"
+                                  rows="5" th:field="*{objetivo}"></textarea>
+                        <div><label th:field="*{estado}" class="font-mono text-xl text-white">Estado:</label><select
+                                    class="bg-gray-800 text-center text-white font-bold font-mono focus:ring hover:ring ring-pink-800 ring-offset-2"
+                                    name="" id="">
+                                <option selected value="1">Pendiente</option>
+                                <option value="2">Terminado</option>
+                                <option value="3">Finalizado</option>
+                                <option value="4"></option>
+                            </select></div>
+                        <div class="flex text-white font-mono text-lg font-bold justify-around mb-5 mt-5">
+                            <button type="button" onclick="cerrarModalEditar()"
+                                    class="transition duration-300 delay-75 bg-red-500 h-10 rounded-md hover:scale-105 hover:shadow-md inline-block hover:shadow-red-800 w-28 hover:bg-red-600 group">
+                                <span class="group-hover:font-bold group-hover:hidden">Cancelar</span>
+                                <span class="group-hover:block hidden">
+                                    <span class="material-symbols-outlined group-hover:block">
+                                        close
+                                    </span>
                                 </span>
-                            </span>
-                        </button>
-                        <input type="submit" value="Editar"
-                            class="transition duration-300 delay-75 bg-green-600 h-10 rounded-md hover:scale-105 hover:shadow-md inline-block hover:shadow-green-800 w-28 hover:bg-green-500 group" />
-                    </div>
-                </form>
+                            </button>
+                            <input type="submit" value="Editar"
+                                   class="transition duration-300 delay-75 bg-green-600 h-10 rounded-md hover:scale-105 hover:shadow-md inline-block hover:shadow-green-800 w-28 hover:bg-green-500 group" />
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- FIN Modal editar -->
+        <!-- FIN Modal editar -->
 
-    <!-- MODAL BORRAR -->
-    <!-- FIN MODAL BORRAR MODAL  -->
-    <!-- FIN MODALES -->
-    <!-- SCRIPTS -->
-    <script th:src="@{js/modals.js}">
-    </script>
+        <!-- MODAL BORRAR -->
+        <!-- FIN MODAL BORRAR MODAL  -->
+        <!-- FIN MODALES -->
+        <!-- SCRIPTS -->
+        <script th:src="@{js/modals.js}">
+        </script>
 </body>
 
 </html>

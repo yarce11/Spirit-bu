@@ -15,6 +15,8 @@ public class Citas {
     @Transient
     private String fechaStr;
 
+
+
     @Column(nullable = false)
     private LocalDateTime fecha;
 
@@ -28,7 +30,7 @@ public class Citas {
     @Column(nullable = false)
     private String usuario;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String imagen;
 
 

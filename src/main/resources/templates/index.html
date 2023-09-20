@@ -47,9 +47,9 @@
     </button>
     <a class="flex flex-shrink md:ml-20 lg:ml-20 xl:ml-20 items-center" th:href="@{index.html}">
       <img th:src="@{img/luz.png}" class="w-12 h-12 rounded-full group-hover:invert transition duration-500" alt="" />
-      <h2
-          class="hidden group-hover:italic hover:underline group-hover:text-white lg:block ml-2 font-bold font-mono text-xl">
-        Modistería D.L.
+      <h2 th:text="${session.usuarioLogueado.id}" class=" hidden group-hover:italic hover:underline group-hover:text-white lg:block ml-2 font-bold font-mono
+          text-xl">
+
       </h2>
     </a>
     <div class="flex flex-nowrap mr-5">
