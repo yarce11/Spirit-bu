@@ -71,7 +71,7 @@
                  alt="" class="h-full" />
             <div class="col-span-2 flex flex-col flex-nowrap font-mono">
                 <div class="my-5 flex flex-nowrap items-start font-semibold">
-                    <h3 th:text="${cita.usuario}" class="text-xl">
+                    <h3 th:text="${cita.nombre_usuario}" class="text-xl">
                     </h3>
                     <br>
                     <h3 th:text="${#temporals.format(cita.fecha, ' - MM-dd HH:mm')}" class="text-xl"></h3>
@@ -107,7 +107,7 @@
                           style="font-size: 5rem">
                         delete
                     </span>
-                    <h2 class="font-bold text-2xl mt-6" th:text="${cita.usuario}">h</h2>
+                    <h2 class="font-bold text-2xl mt-6" th:text="${cita.nombre_usuario}">h</h2>
                     <div class="mx-auto mt-6 flex flex-nowrap justify-center">
                         <button onclick="cerrarModalBorrar()"
                                 class="transition duration-300 delay-75 ml-6 text-center bg-red-500 p-3 h-12 rounded-md hover:scale-105 hover:shadow-md inline-block hover:shadow-red-800 w-28 hover:bg-red-600 group">
@@ -159,7 +159,7 @@
             <!-- Formulario agregar cita -->
 
             <div class="">
-                <div class=" flex items-center  justify-center mt-12"><input th:field="*{usuario}"
+                <div class=" flex items-center  justify-center mt-12"><input th:field="*{nombre_usuario}"
                            class="texto inline-block  border-none  text-white text-xl
                              p-2 bg-gray-800 outline-pink-800 shadow-md shadow-pink-800  focus:outline-pink-800 outline focus:outline-2 rounded-lg font-extrabold" type="text" name=""
                            placeholder="Digita el nombre..." required>

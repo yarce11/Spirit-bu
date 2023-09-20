@@ -1,13 +1,5 @@
 package com.modisteria.dl.model;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Usuarios", uniqueConstraints = @UniqueConstraint(columnNames = "correo"))
@@ -32,6 +24,9 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "id_rol", nullable = true)
     private Rol rol;
+    @OneToOne
+    (mappedBy = "id_usuario")
+    private Citas cita;
 
 
     //Getters

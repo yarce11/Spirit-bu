@@ -2,6 +2,7 @@ package com.modisteria.dl.controller;
 
 import com.modisteria.dl.model.Citas;
 import com.modisteria.dl.model.Estado;
+import com.modisteria.dl.model.Usuario;
 import com.modisteria.dl.service.Cita_service;
 import com.modisteria.dl.service.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -190,8 +191,7 @@ public class CitaController {
                                     citaExistente.setEstado(cita.getEstado());
                                     citaExistente.setFecha(cita.getFecha());
                                     citaExistente.setObjetivo(cita.getObjetivo());
-                                    citaExistente.setUsuario(cita.getUsuario());
-
+                                    citaExistente.setNombre_usuario(cita.getNombre_usuario());
                                     service.actualizar(citaExistente);
                                     return "redirect:/vista";
                                 } else {
@@ -218,12 +218,80 @@ public class CitaController {
 
 
     }
+    /*@PostMapping("/solicitar")
+    public String solicitarCita(@Validated Citas C, @RequestParam("fechaStr") String fechaStr, Model model) {
+        if (fechaStr != null && !fechaStr.isEmpty()) {
+            LocalDateTime fecha = C.convertirFecha();
+            C.setFecha(fecha);
+
+            // Obtener la instancia del usuario actual (puedes adaptar esto según tu sistema de autenticación).
+            Usuario usuarioSolicitante = obtenerUsuarioActual(); // Debes implementar obtenerUsuarioActual() según tu lógica.
+
+            if (usuarioSolicitante != null) {
+                C.setNombre_usuario(usuarioSolicitante.getNombre_completo());
+
+                // Establecer la relación entre la cita y el usuario solicitante.
+                C.setId_usuario(usuarioSolicitante);
+
+                // Validar que la fecha de la cita esté dentro del rango permitido.
+                LocalDateTime fechaActual = LocalDateTime.now();
+                LocalDateTime fecha1mes = fechaActual.plusMonths(1);
+
+                if (fecha.isAfter(fecha1mes)) {
+                    String icon = "error";
+                    String titulo = "Cita cancelada";
+                    String mensaje = "¡Solo puedes solicitar citas dentro de un rango de tiempo de un mes!";
+                    model.addAttribute("icon", icon);
+                    model.addAttribute("titulo", titulo);
+                    model.addAttribute("mensaje", mensaje);
+                    return "error"; // Redirigir a la página de error en caso de problemas.
+                }
+
+                if (fecha.isBefore(fechaActual)) {
+                    String icon = "error";
+                    String titulo = "Cita cancelada";
+                    String mensaje = "¡La fecha y hora que indicaste ya pasaron!";
+                    model.addAttribute("icon", icon);
+                    model.addAttribute("titulo", titulo);
+                    model.addAttribute("mensaje", mensaje);
+                    return "error"; // Redirigir a la página de error en caso de problemas.
+                }
+
+                // Resto del código para manejar otras validaciones y redireccionamientos.
+                // ...
+
+                // Guardar la cita en la base de datos.
+                service.guardar(C);
+
+                return "redirect:/vista"; // Redirigir a la vista de citas u otra página según tu lógica.
+            } else {
+                // Manejar el caso en el que no se pudo obtener el usuario actual.
+                String icon = "error";
+                String titulo = "Cita cancelada";
+                String mensaje = "¡No se pudo obtener el usuario actual!";
+                model.addAttribute("icon", icon);
+                model.addAttribute("titulo", titulo);
+                model.addAttribute("mensaje", mensaje);
+                return "error"; // Redirigir a la página de error en caso de problemas.
+            }
+        } else {
+            // Manejar el caso en el que la fechaStr sea nula o vacía.
+            String icon = "error";
+            String titulo = "Cita cancelada";
+            String mensaje = "¡La fecha y hora son requeridas!";
+            model.addAttribute("icon", icon);
+            model.addAttribute("titulo", titulo);
+            model.addAttribute("mensaje", mensaje);
+            return "error"; // Redirigir a la página de error en caso de problemas.
+        }
+    }
+
 
     @GetMapping("/eliminar/{id}")
     public String eliminarCita(@PathVariable("id") int id) {
         service.eliminar(id);
         return "redirect:/vista";
-    }
+    }*/
 
 
 
