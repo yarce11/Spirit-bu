@@ -1,6 +1,7 @@
 package com.modisteria.dl.model;
 
 import jakarta.persistence.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,19 +16,22 @@ public class Citas {
     @Transient
     private String fechaStr;
 
+
+
     @Column(nullable = false)
     private LocalDateTime fecha;
 
     @Column(nullable = false)
     private String objetivo;
 
-    @Column(nullable = true)
-    private String estado;
+    @ManyToOne
+    @JoinColumn(name = "estado_id", nullable = true)
+    private Estado estado;
 
     @Column(nullable = false)
     private String usuario;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String imagen;
 
 
@@ -78,10 +82,10 @@ public class Citas {
     public void setFechaStr(String fechaStr) {
         this.fechaStr = fechaStr;
     }
-    public String getEstado() {
+    public Estado getEstado() {
         return estado;
     }
-    public void setEstado(String estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
@@ -94,11 +98,6 @@ public class Citas {
             return null; // Manejar el caso en que fechaStr sea nulo o vacío
         }
     }
-    @PrePersist
-    public void prePersist() {
-        if (estado == null) {
-            estado = "Pendiente";
-        }
-    }
+
 
 }
