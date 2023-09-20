@@ -1,6 +1,9 @@
 package com.modisteria.dl.controller;
 
 import com.modisteria.dl.service.UsuarioService;
+
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +19,7 @@ import com.modisteria.dl.repositorio.UsuarioRepositorio;
 public class UsuarioController  {
     private final UsuarioService usuarioService;
 
-    @Autowired
+ 
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
@@ -29,7 +32,11 @@ public class UsuarioController  {
         model.addAttribute("usuario", usuario);
         return "index";
     }
-    @GetMapping("/registro")
+     @GetMapping("/prueba")
+    public String prueba() {
+        return "prueba";
+    }
+    @GetMapping({"/registro","/inicio"})
     public String mostrarRegistro(@RequestParam(name = "status", required = false) String status, Model model) {
         if ("error".equals(status)) {
             String icon = "error";
@@ -47,6 +54,14 @@ public class UsuarioController  {
             model.addAttribute("titulo", titulo);
             model.addAttribute("mensaje", mensaje);
         }
+        else if ("falso".equals(status)) {
+            String icon = "error";
+            String titulo = "Fallo al iniciar sesión";
+            String mensaje = "¡Tus credenciales no son válidas!";
+            model.addAttribute("icon", icon);
+            model.addAttribute("titulo", titulo);
+            model.addAttribute("mensaje", mensaje);
+        } 
 
         return "registroAlert";
      }
@@ -61,12 +76,13 @@ public class UsuarioController  {
      }
      
      @PostMapping("/inicioSesion")
-     public String inicioSesion(@ModelAttribute("usuario") Usuario usuario) {
-         if (usuarioRepositorio.existsByCorreo(usuario.getCorreo())) {
-             return "redirect:/inicioSesion?status=success";
-         }
-         
-        return "redirect:/registro?status=success";
-     }
+     public String inicioSesion(@ModelAttribute("usuario") Usuario usuario, HttpSession session) {
+        Usuario usuarioEncontrado = usuarioRepositorio.findByCorreo(usuario.getCorreo());
+        if (usuarioEncontrado != null && usuarioEncontrado.getPassword().equals(usuario.getPassword())) {
+            session.setAttribute("usuarioLogueado", usuarioEncontrado);
+            return "redirect:/prueba";
+        }
+        return "redirect:/inicio?status=falso";
+    }
 
 }
