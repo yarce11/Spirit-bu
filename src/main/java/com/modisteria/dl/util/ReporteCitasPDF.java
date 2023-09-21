@@ -57,7 +57,7 @@ public class ReporteCitasPDF extends AbstractPdfView {
 			tablaCitas.addCell(cita.getObjetivo());
 			tablaCitas.addCell(cita.getImagen());
 			//tablaCitas.addCell(cita.getTalla());
-			tablaCitas.addCell(cita.getUsuario()); //Aqui como está conectado a la tabla usuarios deberia ser: tablaCitas.addCell(cita.getUsuario().getUsuario()); el primer get es de citas y el segundo es de usuarios
+			tablaCitas.addCell(cita.getNombre_usuario()); //Aqui como está conectado a la tabla usuarios deberia ser: tablaCitas.addCell(cita.getUsuario().getUsuario()); el primer get es de citas y el segundo es de usuarios
 			tablaCitas.addCell(cita.getEstado().getNombre_estado()); //el primer get es de citas y el segundo es de estado
 		});
 		

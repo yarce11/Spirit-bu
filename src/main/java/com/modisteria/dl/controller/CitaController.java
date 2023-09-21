@@ -286,12 +286,12 @@ public class CitaController {
         }
     }
 
-
+*/
     @GetMapping("/eliminar/{id}")
     public String eliminarCita(@PathVariable("id") int id) {
         service.eliminar(id);
         return "redirect:/vista";
-    }*/
+    }
 
 
 
