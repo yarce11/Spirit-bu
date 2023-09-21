@@ -1,11 +1,8 @@
 package com.modisteria.dl.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Permisos")
@@ -21,10 +18,17 @@ public class Permiso {
     @Column(name = "Descripcion")
     private String descripcion;
 
-    @Column(name = "Estado")
-    private int estado;
+    @ManyToOne // Relación "muchos a uno" con Estado
+    @JoinColumn(name = "id_estado", referencedColumnName = "id")
+    private Estado estado;
 
-
+    @ManyToMany
+    @JoinTable(
+            name = "Permiso_Rol",
+            joinColumns = @JoinColumn(name = "id_permiso"),
+            inverseJoinColumns = @JoinColumn(name = "id_rol")
+    )
+    private List<Rol> roles;
     public Long getId() {
         return id;
     }
@@ -49,15 +53,23 @@ public class Permiso {
         this.descripcion = descripcion;
     }
 
-    public int getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(int estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
-    public Permiso(Long id, String nombre, String descripcion, int estado) {
+    public List<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Rol> roles) {
+        this.roles = roles;
+    }
+
+    public Permiso(Long id, String nombre, String descripcion, Estado estado) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -67,7 +79,7 @@ public class Permiso {
     public Permiso() {
     }
 
-    public Permiso(String nombre, String descripcion, int estado) {
+    public Permiso(String nombre, String descripcion, Estado estado) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.estado = estado;

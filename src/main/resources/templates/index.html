@@ -160,40 +160,35 @@
             <input type="email" name="" th:field="*{correo}" required
                    class="w-[90%] border-b-4  pb-2 text-xl texto text-white focus:border-b-blue-950 focus:outline-none  placeholder:text-gray-200 bg-sky-800"
                    placeholder="Ingresa el correo electrónico" id="">
-            <button onclick="cambiarRegistro2()" type="button" title="siguiente"
-                    class="boton hidden  hover:text-cyan-400 transition-colors duration-300 text-white "><span
-                    style="font-size: 2.5rem;" class="  material-symbols-outlined">
-                arrow_circle_right
-              </span></button>
+            <button onclick="cambiarRegistro2()" type="button" title="siguiente" </div>
+          </div>
+          <div id="numeroRegistro" class=" hidden transition-transform duration-1000  ">
+            <h2 class="text-2xl text-white font-semibold ">Registro - Número </h2>
+            <div class="flex items-center  mt-5">
+              <input type="tel" autocomplete="off" name="" required
+                     class="w-[90%] border-b-4  pb-2 text-xl texto text-white focus:border-b-blue-950 focus:outline-none  placeholder:text-gray-200 bg-sky-800"
+                     placeholder="Ingresa el número teléfonico" th:field="*{telefono}" id="">
+              <button onclick="cambiarRegistro3()" type="button" title="siguiente"
+                      class="boton hidden hover:text-cyan-400 transition-colors duration-300 text-white "><span
+                      style="font-size: 2.5rem;" class="  material-symbols-outlined">
+                  arrow_circle_right
+                </span></button>
+            </div>
+          </div>
+          <div id="contraRegistro" class=" hidden transition duration-1000  ">
+            <h2 class="text-2xl text-white font-semibold fon">Registro - Contraseña </h2>
+            <div class="flex items-center  mt-5">
+              <input type="password" th:field="*{password}" name="" required
+                     class="w-[90%] border-b-4  pb-2 text-xl texto text-white focus:border-b-blue-950 focus:outline-none  placeholder:text-gray-200 bg-sky-800"
+                     placeholder="Ingresa la contraseña" id="">
+              <button type="submit" title="siguiente"
+                      class="boton hidden hover:text-cyan-400 transition-colors duration-300 text-white "><span
+                      style="font-size: 2.5rem;" class="  material-symbols-outlined">
+                  arrow_circle_right
+                </span></button>
+            </div>
           </div>
         </div>
-        <div id="numeroRegistro" class=" hidden transition-transform duration-1000  ">
-          <h2 class="text-2xl text-white font-semibold ">Registro - Número </h2>
-          <div class="flex items-center  mt-5">
-            <input type="tel" autocomplete="off" name="" required
-                   class="w-[90%] border-b-4  pb-2 text-xl texto text-white focus:border-b-blue-950 focus:outline-none  placeholder:text-gray-200 bg-sky-800"
-                   placeholder="Ingresa el número teléfonico" th:field="*{telefono}" id="">
-            <button onclick="cambiarRegistro3()" type="button" title="siguiente"
-                    class="boton hidden hover:text-cyan-400 transition-colors duration-300 text-white "><span
-                    style="font-size: 2.5rem;" class="  material-symbols-outlined">
-                arrow_circle_right
-              </span></button>
-          </div>
-        </div>
-        <div id="contraRegistro" class=" hidden transition duration-1000  ">
-          <h2 class="text-2xl text-white font-semibold fon">Registro - Contraseña </h2>
-          <div class="flex items-center  mt-5">
-            <input type="password" th:field="*{password}" name="" required
-                   class="w-[90%] border-b-4  pb-2 text-xl texto text-white focus:border-b-blue-950 focus:outline-none  placeholder:text-gray-200 bg-sky-800"
-                   placeholder="Ingresa la contraseña" id="">
-            <button type="submit" title="siguiente"
-                    class="boton hidden hover:text-cyan-400 transition-colors duration-300 text-white "><span
-                    style="font-size: 2.5rem;" class="  material-symbols-outlined">
-                arrow_circle_right
-              </span></button>
-          </div>
-        </div>
-      </div>
     </form>
   </div>
 

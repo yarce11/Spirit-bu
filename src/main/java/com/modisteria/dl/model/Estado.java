@@ -2,6 +2,8 @@ package com.modisteria.dl.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="Estados")
 public class Estado {
@@ -10,6 +12,9 @@ public class Estado {
     private int id;
     @Column(nullable = false)
     private String nombre_estado;
+    @OneToMany(mappedBy = "estado") // Relación "uno a muchos" con Permiso
+    private List<Permiso> permisos;
+
 
 
     public Estado(){}
@@ -24,5 +29,7 @@ public class Estado {
 
     public String getNombre_estado() {return nombre_estado;}
 
-    public void setNombre_estado(String nombre_estado) {this.nombre_estado = nombre_estado;}
+    public void setNombre_estado(String nombre_estado) {
+    	this.nombre_estado = nombre_estado;
+    }
 }
