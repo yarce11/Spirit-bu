@@ -2,14 +2,13 @@ package com.modisteria.dl.controller;
 
 import com.modisteria.dl.model.Citas;
 import com.modisteria.dl.model.Estado;
-import com.modisteria.dl.model.Usuario;
 import com.modisteria.dl.service.Cita_service;
 import com.modisteria.dl.service.EstadoService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
@@ -292,12 +291,5 @@ public class CitaController {
         service.eliminar(id);
         return "redirect:/vista";
     }
-
-
-
-
-
-
-
 
 }

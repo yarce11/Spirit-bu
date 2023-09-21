@@ -3,6 +3,8 @@ package com.modisteria.dl.service;
 import com.modisteria.dl.model.Estado;
 import com.modisteria.dl.repositorio.EstadoRepositorio;
 
+import jakarta.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +14,13 @@ import java.util.Optional;
 @Service
 public class EstadoService {
     @Autowired
-    private EstadoRepositorio data;
+	private EstadoRepositorio data;
+	
     
-    public List<Estado> listar() {
-        return (List<Estado>)data.findAll();
-    }
+	public List<Estado> listar() {
+		return (List<Estado>) data.findAll();
+	}
+
     
     public int guardar(Estado e) {
 		int res = 0; 

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{css/estilos.css}" />
+</head>
+
+<body class="font-dosis text-white bg-gray-900 font-semibold">
+    <nav id="sidebar"
+         class="fixed flex flex-col items-center justify-start pt-10  top-0 shadow-blue-950 shadow-lg bg-gradient-to-t from-blue-950 gap-6 via-blue-700 to-blue-950 w-20 h-screen">
+        <button href="" onclick="desplegar()" class=" transition duration-300 hover:text-gray-400"><span
+                  style="font-size: 2.2rem;" class="material-symbols-outlined">
+                dashboard
+            </span>
+            <h2 name="h2" class="hidden text-white transition duration-300 ">Dashboard</h2>
+        </button>
+        <a href="" class="transition duration-300 text-center hover:text-gray-400"><span style="font-size: 2.2rem;"
+                  class="material-symbols-outlined">
+                groups
+            </span>
+            <h2 name="h2" class="hidden text-white  transition duration-300">Usuarios</h2>
+        </a>
+        <button href="" class="transition duration-300 text-center hover:text-gray-400"><span style="font-size: 2.2rem;"
+                  class="material-symbols-outlined">
+                security
+            </span>
+            <h2 name="h2" class="hidden text-white  transition duration-300">Privacidad</h2>
+        </button>
+        <div class=""><a href="" class=" transition duration-300 text-center hover:text-gray-400"><span
+                      style="font-size: 2.2rem;" class="material-symbols-outlined">
+                    note
+                </span>
+                <h2 name="h2" class="hidden text-white  transition duration-300">Privacidad</h2>
+            </a>
+            <a href="" class="  transition duration-300 text-center hover:text-gray-400"><span
+                      style="font-size: 2.2rem;" class="material-symbols-outlined">
+                    security
+                </span>
+                <h2 name="h2" class="hidden text-white  transition duration-300">Privacidad</h2>
+            </a>
+        </div>
+
+
+    </nav>
+    <!-- Contenedor página -->
+    <main id="main" class="ml-32 mt-5 w-[85%] text-white">
+        <h1
+            class="w-full font-extrabold text-8xl text-center outline-8 outline-double outline-offset-8 outline-sky-950 mb-10">
+            Usuarios</h1>
+        <div class="grid grid-cols-3 gap-10 mt-12">
+            <div
+                 class=" bg-black/70 shadow-2xl mb-5  w-[21rem] h-40 rounded-lg p-2 flex flex-col flex-nowrap justify-center items-center group hover:bg-black transition duration-700 ">
+
+                <h3 class="text-2xl font-bold">Juanmaster0910@gmail.com</h3>
+                <div class="flex gap-2 flex-nowrap justify-start mt-2  ">
+                    <h4 class="text-gray-300  flex-shrink-0 font-normal ">Juan Muñoz</h4>
+                    <span>
+                        -
+                    </span>
+                    <h4 class="text-gray-300  font-normal ">3103942961</h4>
+                    <span>
+                        -
+                    </span>
+                    <h4 class="text-gray-300  font-normal ">usuario</h4>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </main>
+    <script>
+        let rol = document.getElementById("rol");
+        let sidebar = document.getElementById("sidebar");
+        let main = document.getElementById("main");
+        function desplegar() {
+            if (sidebar.classList.contains("w-20")) {
+                sidebar.classList.remove("w-20");
+                sidebar.classList.add("w-32");
+                main.classList.remove("ml-32");
+                main.classList.add("ml-40");
+                document.getElementsByName("h2").forEach(element => {
+                    element.classList.remove("hidden")
+
+                });
+            } else {
+                document.getElementsByName("h2").forEach(element => {
+                    element.classList.add("opacity-0")
+                    setTimeout(() => {
+                        element.classList.remove("opacity-0")
+                        element.classList.add("hidden")
+                        main.classList.remove("ml-40");
+                        main.classList.add("ml-32");
+                    }, 250);
+
+
+                });
+                setTimeout(() => {
+                    sidebar.classList.remove("w-32");
+                    sidebar.classList.add("w-20");
+
+                }, 250);
+            }
+        }
+    </script>
+</body>
+
+</html>

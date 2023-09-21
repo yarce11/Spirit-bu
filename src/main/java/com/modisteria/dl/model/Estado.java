@@ -18,8 +18,12 @@ public class Estado {
 
 
     public Estado(){}
-    public Estado (int id, String nombre_estado){
-        this.id =id;
+
+    public Estado(int id, String nombre_estado) {
+        this.id = id;
+        this.nombre_estado = nombre_estado;
+    }
+        public Estado (String nombre_estado){
         this.nombre_estado=nombre_estado;
     }
 

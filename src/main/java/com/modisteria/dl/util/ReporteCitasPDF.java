@@ -25,7 +25,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ReporteCitasPDF extends AbstractPdfView {
 
 	@Override
-	protected void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer,
+	public void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		@SuppressWarnings("unchecked")
