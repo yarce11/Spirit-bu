@@ -28,11 +28,14 @@ public class Citas {
     private Estado estado;
 
     @Column(nullable = false)
-    private String usuario;
+    private String nombre_usuario;
 
     @Column(nullable = false)
     private String imagen;
 
+    @OneToOne
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id", nullable = true)
+    private Usuario id_usuario;
 
     public Citas() {
 
@@ -40,12 +43,13 @@ public class Citas {
 
     public Citas(int id, LocalDateTime fecha, String objetivo
 
-            , String usuario, String imagen) {
+            , String nombre_usuario, String imagen, Usuario id_usuario) {
         this.id = id;
         this.fecha = fecha;
         this.objetivo = objetivo;
-        this.usuario = usuario;
+        this.nombre_usuario = nombre_usuario;
         this.imagen = imagen;
+        this.id_usuario = id_usuario;
     }
 
 
@@ -63,11 +67,11 @@ public class Citas {
         return objetivo;
     }
     public void setObjetivo(String objetivo) {this.objetivo = objetivo;}
-    public String getUsuario() {
-        return usuario;
+    public String getNombre_usuario() {
+        return nombre_usuario;
     }
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNombre_usuario(String nombre_usuario) {
+        this.nombre_usuario = nombre_usuario;
     }
     public String getImagen() {
         return imagen;
@@ -86,6 +90,13 @@ public class Citas {
     }
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+    public Usuario getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(Usuario id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public LocalDateTime convertirFecha() {

@@ -43,19 +43,6 @@ public class EstadoController {
 		return "redirect:/listarEstados";
 	}
 	
-	/*@PostMapping("/editarEstado/{id}")
-	public String editar(@Validated Estado estado, @RequestParam("id") int id, Model model) {
-		Estado estados = service.listarId(id);
-		if (estados != null) {
-			estados.setNombre_estado(estados.getNombre_estado());
-			service.actualizar(estados);
-			return "redirect:/listarEstados";
-		}
-		else {
-			return "editarEstado";
-		}
-		return "error";
-	}*/
 	
 	@GetMapping("/editarEstado/{id}")
     public String editar(@PathVariable int id, Model model) {
