@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{css/estilos.css}" />
+  <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css}">
+
+</head>
+
+<body>
+<div class="w-screen h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800"></div>
+<script th:src="@{https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js}"></script>
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  var titulo = /*[[${titulo}]]*/ 'default';
+  var mensaje = /*[[${mensaje}]]*/ 'default';
+  var icon = /*[[${icon}]]*/ 'default';
+  document.addEventListener("DOMContentLoaded", function () {
+    Swal.fire({
+      title: titulo,
+      text: mensaje,
+      icon: icon,
+      confirmButtonText: 'Aceptar',
+      customClass: {
+        popup: 'bg-gray-700 font-mono text-white',
+        confirmButton: 'bg-gray-800 p-2 rounded-md border-none outline-none font-semibold shadow-xl hover:scale-105 text-white',
+      }, buttonsStyling: false, contentStyling: false,
+
+
+    }).then(function () {
+      window.location.href = "/vista";
+    });
+  });
+
+
+  /*]]>*/
+</script>
+
+</body>
+
+</html>

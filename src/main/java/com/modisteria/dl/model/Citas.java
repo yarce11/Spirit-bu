@@ -15,8 +15,6 @@ public class Citas {
     @Transient
     private String fechaStr;
 
-
-
     @Column(nullable = false)
     private LocalDateTime fecha;
 
@@ -100,12 +98,12 @@ public class Citas {
     }
 
     public LocalDateTime convertirFecha() {
-        if (fechaStr != null && !fechaStr.isEmpty()) { // Verificar si fechaStr no es nulo ni vacío
+        if (fechaStr != null && !fechaStr.isEmpty()) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
             return LocalDateTime.parse(fechaStr, formatter);
         } else {
             System.out.println("El valor de fechaStr es nulo o vacío.");
-            return null; // Manejar el caso en que fechaStr sea nulo o vacío
+            return null;
         }
     }
 
