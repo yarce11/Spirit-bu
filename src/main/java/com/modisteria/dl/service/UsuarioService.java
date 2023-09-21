@@ -14,15 +14,16 @@ public class UsuarioService {
     private final UsuarioRepositorio usuarioRepositorio;
     private final RolRepositorio rolRepositorio;
 
-    @Autowired
     public UsuarioService(UsuarioRepositorio usuarioRepositorio, RolRepositorio rolRepositorio) {
         this.usuarioRepositorio = usuarioRepositorio;
         this.rolRepositorio = rolRepositorio;
     }
 
     public void guardarUsuario(Usuario usuario) {
-            Rol primerRol = rolRepositorio.findById(1L).orElse(null); // Cambia 1L al ID del primer rol
-            usuario.setRol(primerRol); // Asigna el primer rol
-            usuarioRepositorio.save(usuario);
-        }
+        Rol primerRol = rolRepositorio.findById(1L).orElse(null); // Cambia 1L al ID del primer rol
+        usuario.setRol(primerRol); // Asigna el primer rol
+        usuarioRepositorio.save(usuario);
+    }
+
+
 }
