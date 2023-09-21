@@ -33,8 +33,13 @@ public class UsuarioController  {
         return "index";
     }
      @GetMapping("/prueba")
-    public String prueba() {
-        return "prueba";
+     public String prueba() {
+         return "prueba";
+     }
+    @GetMapping("/logout")
+    public String cerrarSesion(HttpSession session) {
+        session.removeAttribute("usuarioLogueado");
+        return "redirect:/";
     }
     @GetMapping({"/registro","/inicio"})
     public String mostrarRegistro(@RequestParam(name = "status", required = false) String status, Model model) {
@@ -80,7 +85,7 @@ public class UsuarioController  {
         Usuario usuarioEncontrado = usuarioRepositorio.findByCorreo(usuario.getCorreo());
         if (usuarioEncontrado != null && usuarioEncontrado.getPassword().equals(usuario.getPassword())) {
             session.setAttribute("usuarioLogueado", usuarioEncontrado);
-            return "redirect:/prueba";
+            return "redirect:/";
         }
         return "redirect:/inicio?status=falso";
     }

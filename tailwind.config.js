@@ -2,7 +2,10 @@
 module.exports = {
   content: ["./src/main/resources/**/*.{html,js}"],
   theme: {
-        extend: {
+    extend: {
+      fontFamily: {
+        dosis: ['Dosis'],
+      },
       
       animation: {
         enteringModal: "enteringModal 0.5s ease-in-out",

@@ -10,11 +10,10 @@
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
-<body class="scroll-smooth overflow-x-hidden">
+<body class="scroll-smooth font-dosis overflow-x-hidden">
     <div
          class="w-screen h-screen animate-fadeIn bg-[url('https://i0.wp.com/zeke.com/wp-content/uploads/2011/08/S1150242.jpg?w=1620&ssl=1')] bg-cover relative">
-        <div
-             class="text-white font-mono absolute top-0 flex flex-col items-center justify-center left-0 w-full h-full z-10">
+        <div class="text-white   absolute top-0 flex flex-col items-center justify-center left-0 w-full h-full z-10">
             <h2 class="text-9xl font-extrabold">Citas</h2>
             <h3 class="text-2xl font-bold">
                 Administrador
@@ -47,7 +46,7 @@
         <!-- Fin botón agregar cita -->
         <!-- FILTROS INCIO -->
         <div class="w-full flex justify-between ">
-            <h1 class="ml-20 inline-block my-5 text-5xl font-bold font-mono">Hoy</h1>
+            <h1 class="ml-20 inline-block my-5 text-5xl font-bold  ">Hoy</h1>
             <button class="inline-flex mr-10 self-center  rounded-lg relative  items-center group"><span
                       style="font-size: 2rem;" class="  rounded-lg group-hover:bg-gray-300 material-symbols-outlined">
                     chevron_left
@@ -69,7 +68,7 @@
              class="group mx-auto mt-10 grid max-h-72 min-h-[18rem] min-w-[42rem] max-w-2xl grid-cols-3 gap-3 rounded-xl transition-shadow delay-200 duration-1000 hover:shadow-2xl">
             <img src="https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw631d879e/original/90_1012146-1A08973_1W000_10_BuckleFormalShirt-Clothing-Versace-online-store_0_2.jpg?sw=850&q=85&strip=true"
                  alt="" class="h-full" />
-            <div class="col-span-2 flex flex-col flex-nowrap font-mono">
+            <div class="col-span-2 flex flex-col flex-nowrap  ">
                 <div class="my-5 flex flex-nowrap items-start font-semibold">
                     <h3 th:text="${cita.usuario}" class="text-xl">
                     </h3>
@@ -96,13 +95,13 @@
                     </div>
                 </div>
                 <p th:text="${cita.objetivo}" class="mb-5"></p>
-                    <h2 class="font-black">Estado: <span th:text="${cita.estado.nombre_estado}"></span></h2>
+                <h2 class="font-black">Estado: <span th:text="${cita.estado.nombre_estado}"></span></h2>
                 </h2>
             </div>
             <div class="w-screen h-screen fixed z-50 inset-0 items-center justify-center bg-black/60 hidden"
                  id="modalBorrar">
                 <div id="modalBorrarContent"
-                     class="w-[32rem] h-80 animate-zoomOut text-white font-mono hover:shadow-inner text-center bg-gray-800 rounded-xl">
+                     class="w-[32rem] h-80 animate-zoomOut text-white   hover:shadow-inner text-center bg-gray-800 rounded-xl">
                     <span class="material-symbols-outlined mt-6 block shadow-inner border-8 p-3 rounded-full"
                           style="font-size: 5rem">
                         delete
@@ -147,7 +146,7 @@
         <div id="slide1" class="z-[100] animate-zoomOut  bg-gray-800 rounded-lg w-[27rem] h-60  ">
 
             <div class=" flex flex-nowrap items-center justify-around self-start  w-full h-20 bg-gray-900 text-white ">
-                <h2 class="text-4xl font-bold font-mono text-center text-white underline-offset-4 underline-pink-700">
+                <h2 class="text-4xl font-bold   text-center text-white underline-offset-4 underline-pink-700">
                     Agregar Nombre</h2>
                 <button type="button" onclick="cerrarModalCita()"
                         class="mt-2 hover:scale-95 transition duration-300 hover:text-gray-300" title="cerrar"><span
@@ -175,7 +174,7 @@
         <!-- Slide 2 -->
         <div id="slide2" class="z-[100] hidden animate-enteringModal   bg-gray-800 rounded-lg w-[27rem] h-60  ">
             <div class=" flex flex-nowrap items-center justify-around self-start  w-full h-20 bg-gray-900 text-white ">
-                <h2 class="text-4xl font-bold font-mono text-center text-white underline-offset-4 underline-pink-700">
+                <h2 class="text-4xl font-bold   text-center text-white underline-offset-4 underline-pink-700">
                     Agregar fecha</h2>
                 <button type="button" onclick="cerrarModalCita()"
                         class="mt-2 hover:scale-95 transition duration-300 hover:text-gray-300" title="cerrar"><span
@@ -193,7 +192,7 @@
                               style="font-size: 2rem;" class="material-symbols-outlined">
                             navigate_before
                         </span></button><input th:field="*{fechaStr}" type="datetime-local" name="fechaStr"
-                           id="fechaStr"required>
+                           id="fechaStr" required>
                     <!----<button title="Agregar fecha"
             class="text-white hover:text-gray-400 hover:scale-95 transition duration-300  mt-1.5 ml-1 mr-3">
             <span style="font-size: 2.5rem;" class="material-symbols-outlined"> calendar_month </span>
@@ -219,7 +218,7 @@ class="texto ml-2 inline-block  border-none  text-white  text-xl w-52
         <!-- Slide 3 -->
         <div id="slide3" class="z-[100] animate-enteringModal hidden   bg-gray-800 rounded-lg w-[27rem] h-60  ">
             <div class=" flex flex-nowrap items-center justify-around self-start  w-full h-20 bg-gray-900 text-white ">
-                <h2 class="text-4xl font-bold font-mono text-center text-white underline-offset-4 underline-pink-700">
+                <h2 class="text-4xl font-bold   text-center text-white underline-offset-4 underline-pink-700">
                     Agregar Objetivo </h2>
                 <button type="button" onclick="cerrarModalCita()"
                         class="mt-2 hover:scale-95 transition duration-300 hover:text-gray-300" title="cerrar"><span
@@ -240,8 +239,8 @@ class="texto ml-2 inline-block  border-none  text-white  text-xl w-52
                     <textarea name=""
                               class="texto p-2 inline-block  border-none  text-white text-lg
                               bg-gray-800 outline-pink-800 shadow-md shadow-pink-800  focus:outline-pink-800 outline focus:outline-2  font-extrabold overflow-hidden resize-none  whitespace-normal  text-md w-[80%]  focus:border-none rounded-lg"
-                              rows="4" placeholder="Ingresa el objetivo de la cita..."
-                              th:field="*{objetivo}" required></textarea>
+                              rows="4" placeholder="Ingresa el objetivo de la cita..." th:field="*{objetivo}"
+                              required></textarea>
                     <button title="Siguiente" type="button" onclick="cambiarSlide3()"
                             class="boton mt-1.5  hover:translate-x-1 transition duration-300  hover:text-pink-700  text-pink-900 "><span
                               style="font-size: 2rem;" class="material-symbols-outlined">
@@ -254,7 +253,7 @@ class="texto ml-2 inline-block  border-none  text-white  text-xl w-52
         <div id="slide4"
              class="z-[100]  animate-enteringModal hidden text-center  bg-gray-800 rounded-lg w-[27rem] h-60  ">
             <div class=" flex flex-nowrap items-center justify-around  self-start  w-full h-20 bg-gray-900 text-white ">
-                <h2 class="text-4xl font-bold font-mono text-center text-white underline-offset-4 underline-pink-700">
+                <h2 class="text-4xl font-bold   text-center text-white underline-offset-4 underline-pink-700">
                     Agregar Cita </h2>
                 <button type="button" onclick="cerrarModalCita()"
                         class="mt-2 hover:scale-95 transition duration-300 hover:text-gray-300" title="cerrar"><span
@@ -277,7 +276,7 @@ class="texto ml-2 inline-block  border-none  text-white  text-xl w-52
                             add_a_photo
                         </span>
                     </div>
-                    <h2 class="text-md text-white inline-block font-bold font-mono mx-2">¿Desea Agregar una referencia?
+                    <h2 class="text-md text-white inline-block font-bold   mx-2">¿Desea Agregar una referencia?
                     </h2>
                     <button type="button" class="bg-gray-900 hover:shadow-md 
                   hover:scale-105 hover:bg-gray-950
@@ -288,8 +287,8 @@ class="texto ml-2 inline-block  border-none  text-white  text-xl w-52
                         </span></button>
                     <!-- SUBMIT FORMULARIO -->
                 </div>
-                <div class="mx-auto"><input th:field="*{imagen}" type="text"required><button id="agregarFoto" type="button"
-                            onclick=""
+                <div class="mx-auto"><input th:field="*{imagen}" type="text" required><button id="agregarFoto"
+                            type="button" onclick=""
                             class=" transition animate-[fadeIn_0.5s] hidden text-white duration-300 delay-75 text-center bg-purple-700  rounded-md hover:scale-105 hover:shadow-md  hover:shadow-purple-900 w-28 h-10 hover:bg-purple-900 group"><span
                               class="font-semibold group-hover:font-bold group-hover:hidden">Agregar</span>
                         <span class="group-hover:inline-block hidden">

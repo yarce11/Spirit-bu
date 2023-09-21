@@ -62,7 +62,9 @@ function abrirBurguer() {
     burguer.classList.remove("hidden");
 }
 
-
+function abrirMenuUser(menuUser = document.getElementById("menu-user")) {
+  (menuUser.classList.contains("hidden"))? menuUser.classList.remove("hidden") : menuUser.classList.add("hidden")
+}
 
 
 let modalInicio = document.getElementById("modalInicio");
