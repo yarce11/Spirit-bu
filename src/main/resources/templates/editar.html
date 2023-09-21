@@ -29,12 +29,11 @@
                     </div>
                     <textarea name="objetivo" class="mt-2 overflow-hidden resize-none border-none whitespace-normal text-white text-md w-full max-h-full min-h-full bg-gray-800 focus:border-none focus:outline-gray-800 rounded-lg" rows="5" th:field="*{objetivo}"></textarea>
                     <div>
-                        <label th:for="estado" class="font-mono text-xl text-white">Estado:</label>
-                        <select id="estado" name="estado" class="bg-gray-800 text-center text-white font-bold font-mono focus:ring hover:ring ring-pink-800 ring-offset-2" th:field="*{estado}">
-                            <option selected value="1">Pendiente</option>
-                            <option value="2">Terminado</option>
-                            <option value="3">Finalizado</option>
-                            <option value="4"></option>
+                        <label>Estado:</label>
+                        <select th:field="*{estado.id}">
+                            <option th:each="estado : ${estados}"
+                                    th:value="${estado.id}"
+                                    th:text="${estado.nombre_estado}"></option>
                         </select>
                     </div>
                     <div class="flex text-white font-mono text-lg font-bold justify-around mb-5 mt-5">
