@@ -24,5 +24,7 @@ public class Estado {
 
     public String getNombre_estado() {return nombre_estado;}
 
-    public void setNombre_estado(String nombre_estado) {this.nombre_estado = nombre_estado;}
+    public void setNombre_estado(String nombre_estado) {
+    	this.nombre_estado = nombre_estado;
+    }
 }
