@@ -45,7 +45,7 @@ public class CitaController {
                 LocalDateTime fecha1mes = fechaActual.plusMonths(1);
                 if (fecha.isAfter(fecha1mes)) {
                     String icon = "error";
-                    String titulo = "Registro anulado";
+                    String titulo = "Cita cancelada";
                     String mensaje = "¡Solo puedes solicitar citas dentro de un rango de tiempo de un mes!";
                     model.addAttribute("icon", icon);
                     model.addAttribute("titulo", titulo);
