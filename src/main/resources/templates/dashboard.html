@@ -11,42 +11,7 @@
 </head>
 
 <body class="font-dosis text-white bg-gray-900 font-semibold">
-    <nav id="sidebar"
-         class="fixed flex flex-col items-center justify-start pt-10  top-0 shadow-blue-950 shadow-lg bg-gradient-to-t from-blue-950 gap-6 via-blue-700 to-blue-950 w-20 h-screen">
-        <button href="" onclick="desplegar()" class=" transition duration-300 hover:text-gray-400"><span
-                  style="font-size: 2.2rem;" class="material-symbols-outlined">
-                dashboard
-            </span>
-            <h2 name="h2" class="hidden text-white transition duration-300 ">Dashboard</h2>
-        </button>
-        <a href="" class="transition duration-300 text-center hover:text-gray-400"><span style="font-size: 2.2rem;"
-                  class="material-symbols-outlined">
-                groups
-            </span>
-            <h2 name="h2" class="hidden text-white  transition duration-300">Usuarios</h2>
-        </a>
-        <button href="" class="transition duration-300 text-center hover:text-gray-400"><span style="font-size: 2.2rem;"
-                  class="material-symbols-outlined">
-                security
-            </span>
-            <h2 name="h2" class="hidden text-white  transition duration-300">Privacidad</h2>
-        </button>
-        <div class=""><a href="" class=" transition duration-300 text-center hover:text-gray-400"><span
-                      style="font-size: 2.2rem;" class="material-symbols-outlined">
-                    note
-                </span>
-                <h2 name="h2" class="hidden text-white  transition duration-300">Privacidad</h2>
-            </a>
-            <a href="" class="  transition duration-300 text-center hover:text-gray-400"><span
-                      style="font-size: 2.2rem;" class="material-symbols-outlined">
-                    security
-                </span>
-                <h2 name="h2" class="hidden text-white  transition duration-300">Privacidad</h2>
-            </a>
-        </div>
-
-
-    </nav>
+    <nav th:replace="~{navbar :: sidebar}"></nav>
     <!-- Contenedor página -->
     <main id="main" class="ml-32 mt-5 w-[85%] text-white flex items-center justify-center ">
         <h1
