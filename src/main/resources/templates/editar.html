@@ -23,7 +23,7 @@
                 </div>
                 <!-- FORMULARIO EDITAR -->
                 <div class="col-span-4 row-span-3 mx-3">
-                    <form class="mt-4 ml-1 font-mono" th:action="@{/guardarEdicion}" th:object="${citaE}" method="post">
+                    <form class="mt-4 ml-1 font-mono" th:action="@{/guardarEdicion}" th:object="${citaE}" method="post" enctype="multipart/form-data">
                         <div class="flex items-end">
                             <input type="hidden" name="id" th:field="*{id}" />
                             <input type="text" name="usuario" required
