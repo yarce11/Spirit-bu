@@ -2429,3 +2429,64 @@ video {
     justify-content: space-between;
   }
 }
+/* Estilo para el elemento select */
+select {
+  appearance: none; /* Elimina el estilo predeterminado del sistema */
+  padding: 5px 10px; /* Espaciado interior reducido */
+  font-size: 16px; /* Tamaño de fuente */
+  border: none; /* Sin borde */
+  background-color: transparent; /* Fondo transparente */
+  color: #fff; /* Cambia el color del texto a blanco */
+  border-radius: 5px; /* Bordes redondeados */
+  outline: none; /* Elimina el borde de enfoque */
+  cursor: pointer; /* Cambia el cursor al estilo de selección */
+}
+
+/* Estilo para el borde cuando el elemento está enfocado */
+select:focus {
+  border: 2px solid #00bcd4; /* Cambia el borde al enfocar */
+}
+
+/* Estilo para el triángulo desplegable */
+select::after {
+  content: '\25BC'; /* Código Unicode para el triángulo hacia abajo */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Evita que el triángulo sea interactivo */
+}
+
+/* Estilo para las opciones desplegadas */
+select:focus option {
+  background-color: #333; /* Cambia el color de fondo de las opciones */
+  color: #fff; /* Cambia el color del texto de las opciones a blanco */
+}
+
+/* Estilo para las opciones cuando se resaltan */
+select:focus option:hover {
+  background-color: #555; /* Cambia el color de fondo cuando se resalta */
+  color: #fff; /* Cambia el color del texto cuando se resalta */
+}
+.my-custom-input {
+  border: 2px solid #e5e7eb; /* Color del borde */
+  background-color: #f3f4f6; /* Color de fondo */
+  padding: 10px; /* Espacio interno */
+  border-radius: 8px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
+  outline: none; /* Quita el borde de enfoque */
+  transition: border-color 0.3s; /* Transición del color del borde */
+}
+
+.my-custom-input:hover {
+  border-color: #a0aec0; /* Cambia el color del borde al pasar el cursor */
+}
+
+.my-custom-input:focus {
+  border-color: #3b82f6; /* Cambia el color del borde cuando está enfocado */
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); /* Sombra cuando está enfocado */
+}
+
+
+
