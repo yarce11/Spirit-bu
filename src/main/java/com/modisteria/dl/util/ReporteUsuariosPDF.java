@@ -21,7 +21,7 @@ import com.modisteria.dl.model.Usuario;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@Component("vistadeusuarios")
+@Component("usuarios")
 public class ReporteUsuariosPDF extends AbstractPdfView {
 
 	@Override

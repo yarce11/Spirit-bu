@@ -15,7 +15,7 @@ import com.modisteria.dl.model.Usuario;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 //Siempre debemos indicar que este archivo es un componente de Spring boot con la siguiente anotación
-@Component("vistausuario.xlsx") //No puede tener la misma ruta que en el reporte de pdf entonces debemos adicionar el formto en el que vamos a trabajar ahora que es .xlsx
+@Component("usuarios.xlsx") //No puede tener la misma ruta que en el reporte de pdf entonces debemos adicionar el formto en el que vamos a trabajar ahora que es .xlsx
 public class ReporteUsuariosEXCEL extends AbstractXlsxView {
 	@Override
 	//Este método contiene todos los argumentos necesarios para crear un documento de excel
