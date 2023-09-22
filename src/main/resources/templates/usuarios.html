@@ -52,12 +52,20 @@
         <h1
             class="w-full font-extrabold text-8xl text-center outline-8 outline-double outline-offset-8 outline-sky-950 mb-10">
             Usuarios</h1>
+        <button title="Agregar usuario" onclick="abrirModalRegistro()"
+                class="mx-auto flex justify-center items-center text-white font-bold hover:bg-blue-400 bg-blue-950 py-5 text-xl mt-10 w-[42rem] h-16 rounded-xl group transition duration-500 hover:shadow-2xl hover:scale-105">
+
+            <span class="group-hover:hidden">Agregar Usuario</span><span
+                  class="hidden group-hover:inline transition duration-500 text-white"><span style="font-size: 2.5rem"
+                      class="mt-2 material-symbols-outlined">
+                    add_circle
+                </span></span>
+        </button>
         <div class="grid grid-cols-3 gap-10 mt-12">
             <div
-                 class=" bg-black/70 shadow-2xl mb-5  w-[21rem] h-40 rounded-lg p-2 flex flex-col flex-nowrap justify-center items-center group hover:bg-black transition duration-700 ">
-
-                <h3 class="text-2xl font-bold">Juanmaster0910@gmail.com</h3>
-                <div class="flex gap-2 flex-nowrap justify-start mt-2  ">
+                 class=" bg-blue-900 shadow-2xl mb-5  w-[21rem] h-40 rounded-lg p-2 flex flex-col hover:flex-row flex-nowrap justify-center items-center group hover:bg-blue-600 transition duration-700 ">
+                <h3 class="text-2xl group-hover:hidden font-bold">Juanmaster0910@gmail.com</h3>
+                <div class="flex gap-2 group-hover:hidden flex-nowrap justify-start mt-2  ">
                     <h4 class="text-gray-300  flex-shrink-0 font-normal ">Juan Muñoz</h4>
                     <span>
                         -
@@ -68,8 +76,52 @@
                     </span>
                     <h4 class="text-gray-300  font-normal ">usuario</h4>
                 </div>
-            </div>
 
+                <a href="" class="hidden group-hover:inline-block"><span
+                          class="material-symbols-outlined transition-all duration-700 block hover:text-gray-200 p-3 "
+                          style="font-size: 2rem">
+                        edit
+                    </span></a>
+                <a href=""
+                   class="hidden transition-all duration-700  hover:text-gray-200 group-hover:inline-block"><span
+                          class="material-symbols-outlined p-3 " style="font-size: 2rem">
+                        delete
+                    </span></a>
+            </div>
+        </div>
+
+
+        </div>
+        <div id="modal"
+             class="fixed inset-0  hidden  items-center transition-opacity duration-300 justify-center bg-gradient-to-br from-blue-500 via-blue-800 to-sky-500 w-screen h-screen ">
+            <button onclick="cerrarModalRegistro()"
+                    class="absolute top-2 right-7 text-white hover:scale-90 hover:text-gray-200 transition duration-500"><span
+                      style="font-size: 3rem;" class="material-symbols-outlined">
+                    close
+                </span></button>
+            <form action="" method="post"
+                  class=" bg-blue-950 shadow-blue-800 group shadow-lg mb-5  w-[21rem] h-40 rounded-lg p-2 flex flex-col flex-nowrap justify-center items-center group hover:bg-blue-900 transition duration-700 absolute ">
+
+                <input class="text-2xl border-none outline-none group-hover:bg-blue-900 transition duration-700 bg-blue-950  font-bold placeholder:text-white  "
+                       placeholder="Tucorreo@gmail.com">
+                <div class="flex gap-2 flex-nowrap justify-start mt-2  ">
+                    <input class="text-gray-300  border-none outline-none group-hover:bg-blue-900 transition duration-700 bg-blue-950  font-normal w-16 placeholder:text-white   flex-shrink-0 "
+                           placeholder="Nombre">
+                    <span>
+                        -
+                    </span>
+                    <input class="text-gray-300  border-none outline-none group-hover:bg-blue-900 transition duration-700 bg-blue-950  font-normal w-24 placeholder:text-white   flex-shrink-0 "
+                           placeholder="300 000 0000">
+                    <span>
+                        -
+                    </span>
+                    <select required name="" class=" text-gray-300 border-none outline-none group-hover:bg-blue-900 transition
+                            duration-700 bg-blue-950 font-normal w-16 placeholder:text-white flex-shrink-0" id="">
+                        <option value="Rol" selected disabled>Rol</option>
+                        <option value="usuario">usuario</option>
+                    </select>
+                </div>
+            </form>
         </div>
 
 
@@ -108,6 +160,20 @@
 
                 }, 250);
             }
+        }
+        function cerrarModalRegistro(modalRegistro = document.getElementById('modal')) {
+            modalRegistro.classList.remove("animate-[fadeIn_0.4s]");
+            modalRegistro.classList.add("animate-[fadeOut_0.4s]");
+            setTimeout(function () {
+                modalRegistro.classList.remove("flex");
+                modalRegistro.classList.add("hidden");
+                modalRegistro.classList.remove("animate-[fadeOut_0.4s]");
+                modalRegistro.classList.add("animate-[fadeIn_0.4s]");
+            }, 400);
+        }
+        function abrirModalRegistro(modalRegistro = document.getElementById('modal')) {
+            modalRegistro.classList.remove("hidden");
+            modalRegistro.classList.add("flex");
         }
     </script>
 </body>

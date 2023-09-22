@@ -79,6 +79,14 @@ public class UsuarioController  {
          usuarioService.guardarUsuario(usuario);
          return "redirect:/registro?status=success";
      }
+    @PostMapping("/addUser")
+     public String agregarUsuario(@ModelAttribute("usuario") Usuario usuario) {
+         if (usuarioRepositorio.existsByCorreo(usuario.getCorreo())) {
+             return "redirect:/registro?status=error";
+         }
+         usuarioService.guardarUsuario(usuario);
+         return "redirect:/registro?status=success";
+     }
      
      @PostMapping("/inicioSesion")
      public String inicioSesion(@ModelAttribute("usuario") Usuario usuario, HttpSession session) {
