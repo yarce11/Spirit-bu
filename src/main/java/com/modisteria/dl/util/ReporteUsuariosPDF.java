@@ -32,7 +32,7 @@ public class ReporteUsuariosPDF extends AbstractPdfView {
 		//No generar advertencias
 		@SuppressWarnings("unchecked")
 		//Variable usuarios de tipo lista con objetos de tipo usuario, el get trae un objeto usuario que es la lista de todos los usuarios
-		List<Usuario> usuarios = (List<Usuario>) model.get("usuario");
+		List<Usuario> usuarios = (List<Usuario>) model.get("usuarios");
 		
 		//Fuentes y tamaños para cada sección
 		Font fuenteTitulo = FontFactory.getFont(FontFactory.HELVETICA_BOLD,14);

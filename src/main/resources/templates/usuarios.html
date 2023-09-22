@@ -61,6 +61,18 @@
                     add_circle
                 </span></span>
         </button>
+        
+        <br>
+        <th:block th:if="${not #lists.isEmpty(usuarios)}">
+            <a th:href="@{/usuarios(format=pdf)}" class="nav-link float-right" title="Exportar a PDF" target="_blank">
+                <img class="img-responsive center-box" th:src="@{/img/pdf.png}" height="auto" />
+            </a>
+            <a th:href="@{/usuarios(format=xlsx)}" class="nav-link float-right" title="Exportar a EXCEL" target="_blank">
+                <img class="img-responsive center-box" th:src="@{/img/xlsx.png}" height="auto" />
+            </a>
+        </th:block>
+        <br><br>
+        
         <div class="grid grid-cols-3 gap-10 mt-12">
             <div th:each="usuario:${usuarios}"
                  class=" bg-blue-900 shadow-2xl mb-5  w-[21rem] h-40 rounded-lg p-2 flex flex-col hover:flex-row flex-nowrap justify-center items-center group hover:bg-blue-600 transition duration-700 ">

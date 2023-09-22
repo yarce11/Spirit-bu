@@ -22,7 +22,7 @@ public class ReporteUsuariosEXCEL extends AbstractXlsxView {
 	public void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
-		response.setHeader("Content-Disposition", "attachment; filename=\"listado-citas.xlsx\"");
+		response.setHeader("Content-Disposition", "attachment; filename=\"listado-usuarios.xlsx\"");
 		Sheet hoja = workbook.createSheet("Usuarios");
 		
 		
@@ -42,7 +42,7 @@ public class ReporteUsuariosEXCEL extends AbstractXlsxView {
 		}
 		
 		//Creamos la lista para empezar el proceso de traer la información de los usuarios
-		List<Usuario> listaUsuarios = (List<Usuario>) model.get("usuario");
+		List<Usuario> listaUsuarios = (List<Usuario>) model.get("usuarios");
 		
 		//Creamos un foreach para recorrer cada registro
 		int numFila = 3; //Indice de la fila en la que vamos a empezar a poner los datos de los usuarios
