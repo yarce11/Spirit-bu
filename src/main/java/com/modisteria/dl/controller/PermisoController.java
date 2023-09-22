@@ -1,8 +1,5 @@
 package com.modisteria.dl.controller;
-
-import com.modisteria.dl.model.Estado;
 import com.modisteria.dl.model.Permiso;
-import com.modisteria.dl.service.EstadoService;
 import com.modisteria.dl.service.PermisoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

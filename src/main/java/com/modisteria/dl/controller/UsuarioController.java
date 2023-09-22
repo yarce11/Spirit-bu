@@ -47,23 +47,39 @@ public class UsuarioController  {
             String icon = "error";
             String titulo = "Registro anulado";
             String mensaje = "¡El correo ingresado ya se encuentra entre nuestros registros!";
+            String link = "/usuarios";
             model.addAttribute("icon", icon);
             model.addAttribute("titulo", titulo);
             model.addAttribute("mensaje", mensaje);
+            model.addAttribute("link", link);
         } 
         else if ("success".equals(status)) {
             String icon = "success";
             String titulo = "Registro exitoso";
             String mensaje = "¡El registro se ha realizado satisfactoriamente!";
+            String link = "/usuarios";
             model.addAttribute("icon", icon);
             model.addAttribute("titulo", titulo);
+            model.addAttribute("link", link);
             model.addAttribute("mensaje", mensaje);
         }
         else if ("falso".equals(status)) {
             String icon = "error";
             String titulo = "Fallo al iniciar sesión";
             String mensaje = "¡Tus credenciales no son válidas!";
+            String link = "/usuarios";
             model.addAttribute("icon", icon);
+            model.addAttribute("titulo", titulo);
+            model.addAttribute("link", link);
+            model.addAttribute("mensaje", mensaje);
+        } 
+        else if ("errorAdmin".equals(status)) {
+            String icon = "error";
+            String titulo = "Fallo al iniciar sesión";
+            String mensaje = "¡Tus credenciales no son válidas!";
+            String link = "/usuarios";
+            model.addAttribute("icon", icon);
+            model.addAttribute("link", link);
             model.addAttribute("titulo", titulo);
             model.addAttribute("mensaje", mensaje);
         } 
@@ -79,14 +95,8 @@ public class UsuarioController  {
          usuarioService.guardarUsuario(usuario);
          return "redirect:/registro?status=success";
      }
-    @PostMapping("/addUser")
-     public String agregarUsuario(@ModelAttribute("usuario") Usuario usuario) {
-         if (usuarioRepositorio.existsByCorreo(usuario.getCorreo())) {
-             return "redirect:/registro?status=error";
-         }
-         usuarioService.guardarUsuario(usuario);
-         return "redirect:/registro?status=success";
-     }
+
+     
      
      @PostMapping("/inicioSesion")
      public String inicioSesion(@ModelAttribute("usuario") Usuario usuario, HttpSession session) {

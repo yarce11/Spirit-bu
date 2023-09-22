@@ -18,6 +18,7 @@
         var titulo = /*[[${titulo}]]*/ 'default';
         var mensaje = /*[[${mensaje}]]*/ 'default';
         var icon = /*[[${icon}]]*/ 'default';
+        var link = /*[[${link}]]*/ 'default';
         document.addEventListener("DOMContentLoaded", function () {
             Swal.fire({
                 title: titulo,
@@ -31,7 +32,7 @@
 
 
             }).then(function () {
-                window.location.href = "/";
+                window.location.href = link
             });
         });
 
