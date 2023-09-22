@@ -1,4 +1,5 @@
 package com.modisteria.dl.controller;
+import com.modisteria.dl.model.Estado;
 import com.modisteria.dl.model.Permiso;
 import com.modisteria.dl.service.PermisoService;
 import jakarta.validation.Valid;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,15 +24,12 @@ public class PermisoController {
 	@GetMapping("/listarPermisos")
 	public String listar(Model model) {
 		List<Permiso> permiso = service.listar();
-		model.addAttribute("estados", permiso);
-		return "estados";
+		model.addAttribute("permisos", permiso);
+		model.addAttribute("permiso", new Permiso());
+		return "permisos";
 	}
 	
-	@GetMapping("/nuevoPermiso")
-	public String agregar(Model model) {
-		model.addAttribute("permiso", new Permiso());
-		return "nuevoPermiso";
-	}
+
 	
 	@PostMapping("/guardarPermiso")
 	public String guardar(@Valid Permiso p, Model model) {
@@ -39,15 +38,20 @@ public class PermisoController {
 	}
 
 	
-	@GetMapping("/editarPermiso/{id}")
-    public String editar(@PathVariable int id, Model model) {
-        Optional<Permiso> permiso = service.listarId(id);
-        if (permiso.isPresent()) {
-            model.addAttribute("estado", permiso.get());
-            return "editarPermiso";
-        } else {
-            return "redirect:/listarPermisos";
-        }
+	@GetMapping("/listarPermisos/{id}")
+    public String editar(@PathVariable int id, Model model, @RequestParam(name = "action") String action) {
+		List<Permiso> permiso = service.listar();
+		model.addAttribute("permisos", permiso);
+		model.addAttribute("permiso", new Permiso());
+		
+		Optional<Permiso> permisoE = service.listarId(id);
+		model.addAttribute("permisoE", permisoE.get());
+
+        boolean borrarPermiso = ("borrar".equals(action));
+		boolean editPermiso = ("edit".equals(action));
+        model.addAttribute("editPermiso", editPermiso);
+		model.addAttribute("borrarPermiso", borrarPermiso);
+		return "permisos";
     }
 	
 	@GetMapping("/eliminarPermiso/{id}")

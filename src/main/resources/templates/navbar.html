@@ -40,7 +40,7 @@
       </h2>
     </div>
   </a>
-  <div th:if=" ${session.usuarioLogueado == null}" class="flex flex-nowrap mr-5">
+  <div th:if="${session.usuarioLogueado == null}" class="flex flex-nowrap mr-5">
     <button onclick="abrirModalInicio();"
             class="hidden hover:underline group-hover:text-white md:block lg:block ml-2 font-semibold   text-base">
       Ingreso</button><button onclick="abrirModalRegistro()"

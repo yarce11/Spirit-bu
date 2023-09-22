@@ -57,7 +57,7 @@ public class UsuarioController  {
             String icon = "success";
             String titulo = "Registro exitoso";
             String mensaje = "¡El registro se ha realizado satisfactoriamente!";
-            String link = "/usuarios";
+            String link = "/";
             model.addAttribute("icon", icon);
             model.addAttribute("titulo", titulo);
             model.addAttribute("link", link);
@@ -67,7 +67,7 @@ public class UsuarioController  {
             String icon = "error";
             String titulo = "Fallo al iniciar sesión";
             String mensaje = "¡Tus credenciales no son válidas!";
-            String link = "/usuarios";
+            String link = "/";
             model.addAttribute("icon", icon);
             model.addAttribute("titulo", titulo);
             model.addAttribute("link", link);

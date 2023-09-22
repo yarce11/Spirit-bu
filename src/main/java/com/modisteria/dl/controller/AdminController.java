@@ -67,7 +67,7 @@ public class AdminController {
     @PostMapping("/userAdd")
     public String registrarUsuario(@ModelAttribute("nuevoUsuario") Usuario usuario) {
         usuarioRepositorio.save(usuario);
-        return "redirect:/usuarios";
+        return "redirect:/usuarios/";
     }
     @PostMapping("/userEdit")
     public String editarUsuario( Model model, @RequestParam("id") Long id, @Validated Usuario usuarioForm ) {
