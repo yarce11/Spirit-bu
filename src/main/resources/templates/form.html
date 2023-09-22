@@ -185,7 +185,7 @@
 
                 <div class=" flex items-center  justify-center mt-12"><input
                            th:if="${session.usuarioLogueado.rol.nombre == 'usuario'}"
-                           th:value="${session.usuarioLogueado.nombre_completo}"
+                           th:value="${session.usuarioLogueado.nombre_completo}" th:field="*{nombre_usuario}"
                            class="texto inline-block  border-none text-white text-xl
                              p-2 bg-gray-800 outline-pink-800 shadow-md shadow-pink-800  focus:outline-pink-800 outline focus:outline-2 rounded-lg font-extrabold"
                            type="text" name="" required>
