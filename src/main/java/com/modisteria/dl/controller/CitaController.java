@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -22,13 +23,7 @@ public class CitaController {
     @Autowired
     private EstadoService serviceEstado;
 
-    @GetMapping("/vista")
-    public String vista(Model model) {
-        List<Citas> citas = service.listar();
-        model.addAttribute("citas", citas);
-        model.addAttribute("nuevaCita", new Citas());
-        return "form";
-    }
+
 
     @PostMapping("/guardar")
     public String guardar(@Validated Citas C, @RequestParam("fechaStr") String fechaStr, Model model) {
@@ -289,5 +284,27 @@ public class CitaController {
         service.eliminar(id);
         return "redirect:/vista";
     }
+    @GetMapping("/vista")
+    public String vista(Model model) {
+        List<Citas> citas = service.listar();
+        model.addAttribute("citas", citas);
+        model.addAttribute("nuevaCita", new Citas());
+        return "form";
+    }
+    @GetMapping("/hoy")
+    public String obtenerCitasDelDia(Model model) {
+        List<Citas> citas = service.obtenerCitasDelDia();
+        model.addAttribute("citas", citas);
+        model.addAttribute("nuevaCita", new Citas());
+        return "form";
+    }
+    @GetMapping("/manana")
+    public String obtenerCitasDeManana(Model model) {
+        List<Citas> citas = service.obtenerCitasDeManana();
+        model.addAttribute("citas", citas);
+        model.addAttribute("nuevaCita", new Citas());
+        return "form";
+    }
+
 
 }

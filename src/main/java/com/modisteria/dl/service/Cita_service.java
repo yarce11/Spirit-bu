@@ -5,6 +5,7 @@ import com.modisteria.dl.model.Citas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.*;
 import java.util.List;
 
 @Service // Agrega la anotación @Service para que Spring reconozca esta clase como un bean
@@ -40,8 +41,16 @@ public class Cita_service{
 
     public boolean verificarFecha(Citas nuevaCita){
         List<Citas>citaExistente = data.findByFecha(nuevaCita.getFecha());
-        return citaExistente.isEmpty(); //IsEmpty() me devuelve una respuesta boolean dependediendo del caso de citaExistente
+        return citaExistente.isEmpty();
     }
+    public List<Citas> obtenerCitasDelDia() {
+        return data.obtenerCitasDelDia();
+    }
+    public List<Citas> obtenerCitasDeManana() {
+        LocalDate manana = LocalDate.now().plusDays(1);
+        return data.obtenerCitasDeManana(manana);
+    }
+
 
 
 
