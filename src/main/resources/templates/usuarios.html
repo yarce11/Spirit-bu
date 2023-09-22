@@ -17,6 +17,7 @@
         <h1
             class="w-full font-extrabold text-8xl text-center outline-8 outline-double outline-offset-8 outline-sky-950 mb-10">
             Usuarios
+
         </h1>
         <button title="Agregar usuario" onclick="abrirModalRegistro()"
                 class="mx-auto flex justify-center items-center text-white font-bold hover:bg-blue-400 bg-blue-950 py-5 text-xl mt-10 w-[42rem] h-16 rounded-xl group transition duration-500 hover:shadow-2xl hover:scale-105">
@@ -27,6 +28,19 @@
                     add_circle
                 </span></span>
         </button>
+
+        <br>
+        <th:block th:if="${not #lists.isEmpty(usuarios)}">
+            <a th:href="@{/usuarios(format=pdf)}" class="nav-link float-right" title="Exportar a PDF" target="_blank">
+                <img class="img-responsive center-box" th:src="@{/img/pdf.png}" height="auto" />
+            </a>
+            <a th:href="@{/usuarios(format=xlsx)}" class="nav-link float-right" title="Exportar a EXCEL"
+               target="_blank">
+                <img class="img-responsive center-box" th:src="@{/img/xlsx.png}" height="auto" />
+            </a>
+        </th:block>
+        <br><br>
+
         <div class="grid grid-cols-3 gap-10 mt-12">
             <div th:each="usuario:${usuarios}"
                  class=" bg-blue-900 shadow-2xl mb-5  w-[21rem] h-40 rounded-lg p-2 flex flex-col hover:flex-row flex-nowrap justify-center items-center group hover:bg-blue-600 transition duration-700 ">
@@ -48,11 +62,11 @@
                           style="font-size: 2rem">
                         edit
                     </span></a>
-                <button href="" onclick=""
-                        class="hidden transition-all duration-700  hover:text-gray-200 group-hover:inline-block"><span
+                <a th:href="'/usuarios/'+ ${usuario.id}+'?action=borrar'"
+                   class="hidden transition-all duration-700  hover:text-gray-200 group-hover:inline-block"><span
                           class="material-symbols-outlined p-3 " style="font-size: 2rem">
                         delete
-                    </span></button>
+                    </span></a>
             </div>
         </div>
 
@@ -100,9 +114,80 @@
 
             </form>
         </div>
+        <div th:if="${editcita}"
+             class="fixed inset-0 flex items-center transition-opacity duration-300 justify-center bg-gradient-to-br from-blue-500 via-blue-800 to-sky-500 w-screen h-screen ">
+            <a href="/usuarios/"
+               class="absolute top-2 right-7 text-white hover:scale-90 hover:text-gray-200 transition duration-500"><span
+                      style="font-size: 3rem;" class="material-symbols-outlined">
+                    close
+                </span></a>
+            <form th:action="@{/userEdit}" th:object="${usuarioId}" method="post"
+                  class=" bg-blue-950 shadow-blue-800 group shadow-lg mb-5  w-[21rem] h-40 rounded-lg p-2 flex flex-col flex-nowrap justify-center items-center group hover:bg-blue-900 transition duration-700 absolute ">
 
+                <input type="hidden" name="id" th:field="*{id}">
+                <input class="text-2xl texto border-none outline-none group-hover:bg-blue-900 ml-4 transition duration-700 bg-blue-950  font-bold placeholder:text-white  "
+                       th:field="*{correo}">
+                <div class="flex gap-2 flex-nowrap justify-start mt-2  ">
+                    <input required type="text"
+                           class="text-gray-300  border-none outline-none group-hover:bg-blue-900 transition duration-700 bg-blue-950  font-normal w-16 placeholder:text-white   flex-shrink-0 "
+                           th:field="*{nombre_completo}">
+                    <span>
+                        -
+                    </span>
+                    <input required th:field="*{telefono}" type="text"
+                           class="text-gray-300  border-none outline-none group-hover:bg-blue-900 transition duration-700 bg-blue-950  font-normal w-24 placeholder:text-white   flex-shrink-0 "
+                           placeholder="300 000 0000">
+                    <span>
+                        -
+                    </span>
+                    <select required th:field="*{rol.nombre}" type="number"
+                            class=" text-gray-300 border-none outline-none group-hover:bg-blue-900 transition
+                                                            duration-700 bg-blue-950 font-normal w-16 placeholder:text-white flex-shrink-0" id="">
+                        <option value="Rol" selected disabled>Rol</option>
+                        <option th:each="rol:${roles}" th:text="${rol.nombre}" th:value="${rol.nombre}">Rol</option>
+                    </select>
+                </div>
+                <div class="flex flex-nowrap justify-start mt-2 mr-5  ">
+                    <input required th:field="*{password}" type="text"
+                           class="text-gray-300  border-none outline-none group-hover:bg-blue-900 transition duration-700 bg-blue-950  font-normal w-24 placeholder:text-white  flex-shrink-0 ">
+                    <input type="submit" class="ml-2 text-pink-700 cursor-pointer" value="Editar">
+                </div>
 
-
+            </form>
+        </div>
+        <div th:if="${borrarCita}"
+             class="fixed inset-0 flex items-center transition-opacity duration-300 justify-center bg-gradient-to-br from-blue-900 via-blue-500 to-sky-950 w-screen h-screen ">
+            <a href="/usuarios/"
+               class="absolute top-2 right-7 text-white hover:scale-90 hover:text-gray-200 transition duration-500"><span
+                      style="font-size: 3rem;" class="material-symbols-outlined">
+                    close
+                </span></a>
+            <div
+                 class="w-[32rem] h-80 animate-zoomOut text-white font-mono hover:shadow-inner text-center shadow-lg shadow-blue-900 bg-blue-950 rounded-xl">
+                <span class="material-symbols-outlined mt-6 block shadow-inner p-3" style="font-size: 5rem">
+                    delete
+                </span>
+                <h2 class="font-bold text-2xl mt-6">¿Deseas eliminar la cita?</h2>
+                <div class="mx-auto mt-6 flex flex-nowrap justify-center">
+                    <a href="/usuarios/"
+                       class="transition duration-300 delay-75 ml-6 text-center bg-red-500 p-3 h-12 rounded-md hover:scale-105 hover:shadow-md inline-block hover:shadow-red-800 w-28 hover:bg-red-600 group">
+                        <span class="font-semibold group-hover:font-bold group-hover:hidden">Cancelar</span>
+                        <span class="group-hover:block hidden">
+                            <span class="material-symbols-outlined group-hover:block">
+                                close
+                            </span>
+                        </span></a><a href="#" id="enviar"
+                       class="ml-10 transition duration-300 delay-75 text-center bg-green-600 p-3 rounded-md hover:scale-105 hover:shadow-md inline-block hover:shadow-green-800 w-28 h-12 hover:bg-green-500 group"><span
+                              class="font-semibold group-hover:font-bold group-hover:hidden">Aceptar</span>
+                        <span class="group-hover:block hidden">
+                            <span class="material-symbols-outlined group-hover:block">
+                                done
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
     </main>
     <script>

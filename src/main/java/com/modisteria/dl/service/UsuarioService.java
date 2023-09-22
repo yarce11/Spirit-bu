@@ -19,6 +19,9 @@ public class UsuarioService {
         this.rolRepositorio = rolRepositorio;
     }
 
+    public Usuario listarId(Long id) {
+        return usuarioRepositorio.findById(id).get();
+    }
     public void guardarUsuario(Usuario usuario) {
         Rol primerRol = rolRepositorio.findById(1L).orElse(null); // Cambia 1L al ID del primer rol
         usuario.setRol(primerRol); // Asigna el primer rol

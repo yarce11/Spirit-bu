@@ -36,7 +36,7 @@ public class EstadoController {
 	}
 	
 	@PostMapping("/guardarEstado")
-	public String guardar(@Valid Estado e, Model model) {
+	public String guardar(@Valid Estado e) {
 		service.guardar(e);
 		return "redirect:/listarEstados";
 	}
@@ -54,7 +54,7 @@ public class EstadoController {
     }
 	
 	@GetMapping("/eliminarEstado/{id}")
-	public String eliminar(@PathVariable int id, Model model) {
+	public String eliminar(@PathVariable int id) {
 		service.delete(id);
 		return "redirect:/listarEstados";
 	}

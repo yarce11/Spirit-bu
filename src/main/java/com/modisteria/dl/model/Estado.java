@@ -15,15 +15,9 @@ public class Estado {
     @OneToMany(mappedBy = "estado") // Relación "uno a muchos" con Permiso
     private List<Permiso> permisos;
 
-
-
     public Estado(){}
-
-    public Estado(int id, String nombre_estado) {
-        this.id = id;
-        this.nombre_estado = nombre_estado;
-    }
-        public Estado (String nombre_estado){
+    
+    public Estado (String nombre_estado){
         this.nombre_estado=nombre_estado;
     }
 
