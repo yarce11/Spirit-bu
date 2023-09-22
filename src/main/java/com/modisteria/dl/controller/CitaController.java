@@ -81,7 +81,7 @@ public class CitaController {
                                     model.addAttribute("icon", icon);
                                     model.addAttribute("titulo", titulo);
                                     model.addAttribute("mensaje", mensaje);
-                                    return "error";
+                                    return "modalesCita";
                                 default:
                                     int hora = fecha.getHour();
                                     if (hora >= 8 && hora <= 17) {
@@ -94,7 +94,7 @@ public class CitaController {
                                         model.addAttribute("icon", icono);
                                         model.addAttribute("titulo", titulos);
                                         model.addAttribute("mensaje", mensajes);
-                                        return "error";
+                                        return "modalesCita";
                                     }
                             }
                         }
@@ -116,7 +116,7 @@ public class CitaController {
             model.addAttribute("titulo", titulo);
             model.addAttribute("mensaje", mensaje);
         }
-        return "error";
+        return "modalesCita";
     }
 
 
@@ -182,7 +182,7 @@ public class CitaController {
                                 model.addAttribute("icon", icon);
                                 model.addAttribute("titulo", titulo);
                                 model.addAttribute("mensaje", mensaje);
-                                return "error";
+                                return "modalesCita";
 
                             default:
                                 int hora = fecha.getHour();
@@ -213,7 +213,7 @@ public class CitaController {
             model.addAttribute("titulo", titulo);
             model.addAttribute("mensaje", mensaje);
         }
-        return "error";
+        return "modalesCita";
 
 
     }
