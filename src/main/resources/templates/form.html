@@ -182,10 +182,19 @@
             <!-- Formulario agregar cita -->
 
             <div class="">
-                <div class=" flex items-center  justify-center mt-12"><input th:field="*{nombre_usuario}"
+                <div class=" flex items-center  justify-center mt-12"><input th:if="${session.usuarioLogueado.rol.nombre == 'admin' && session.usuarioLogueado != null}"
+                        th:field="*{nombre_usuario}"
                            class="texto inline-block  border-none text-white text-xl
                              p-2 bg-gray-800 outline-pink-800 shadow-md shadow-pink-800  focus:outline-pink-800 outline focus:outline-2 rounded-lg font-extrabold" type="text" name=""
                            placeholder="Digita el nombre..." required>
+                    <input th:if="${session.usuarioLogueado.rol.nombre == 'usuario' && session.usuarioLogueado != null}"
+                           th:field="*{nombre_usuario}"
+                           class="texto inline-block border-none text-white text-xl p-2 bg-gray-800 outline-pink-800 shadow-md shadow-pink-800 focus:outline-pink-800 outline focus:outline-2 rounded-lg font-extrabold"
+                           type="text"
+                           name=""
+                           placeholder="Digita el nombre..."
+                           required
+                           th:attr="disabled=${session.usuarioLogueado.rol.nombre == 'usuario' && session.usuarioLogueado != null}">
                     <button title="Siguiente" type="button" onclick="cambiarSlide1()"
                             class="boton mt-1.5  ml-3 hover:translate-x-1 transition duration-300  hover:text-pink-700  text-pink-900"><span
                               style="font-size: 2rem;" class="material-symbols-outlined">

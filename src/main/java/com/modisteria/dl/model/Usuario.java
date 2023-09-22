@@ -24,8 +24,7 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "id_rol", nullable = true)
     private Rol rol;
-    @OneToOne
-    (mappedBy = "id_usuario")
+    @OneToOne(mappedBy = "id_usuario")
     private Citas cita;
 
 
