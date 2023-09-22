@@ -63,12 +63,8 @@ public class AdminController {
         model.addAttribute("borrarCita", borrarCita);
         return "usuarios";
     }
-    
-    @PostMapping("/userAdd")
-    public String registrarUsuario(@ModelAttribute("nuevoUsuario") Usuario usuario) {
-        usuarioRepositorio.save(usuario);
-        return "redirect:/usuarios/";
-    }
+
+
     @PostMapping("/userEdit")
     public String editarUsuario( Model model, @RequestParam("id") Long id, @Validated Usuario usuarioForm ) {
         Usuario usuarioE = usuarioService.listarId(id);
@@ -81,6 +77,17 @@ public class AdminController {
         usuarioRepositorio.save(usuarioE);
          return "redirect:/usuarios/";
      }
+    @PostMapping("/userAdd")
+    public String registrarUsuario(@ModelAttribute("nuevoUsuario") Usuario usuario) {
+        usuarioRepositorio.save(usuario);
+        return "redirect:/usuarios/";
+    }
+    @PostMapping("/eliminarUsuario")
+    public String eliminarUsuario(@RequestParam("id") Long id) {
+        usuarioRepositorio.deleteById(id);
+        return "redirect:/usuarios/";
+    }
 
-    
+
+
 }
