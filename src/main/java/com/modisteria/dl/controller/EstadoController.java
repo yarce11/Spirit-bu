@@ -2,12 +2,10 @@ package com.modisteria.dl.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +36,7 @@ public class EstadoController {
 	}
 	
 	@PostMapping("/guardarEstado")
-	public String guardar(@Valid Estado e, Model model) {
+	public String guardar(@Valid Estado e) {
 		service.guardar(e);
 		return "redirect:/listarEstados";
 	}
@@ -56,7 +54,7 @@ public class EstadoController {
     }
 	
 	@GetMapping("/eliminarEstado/{id}")
-	public String eliminar(@PathVariable int id, Model model) {
+	public String eliminar(@PathVariable int id) {
 		service.delete(id);
 		return "redirect:/listarEstados";
 	}
