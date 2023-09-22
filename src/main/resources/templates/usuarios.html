@@ -57,7 +57,7 @@
                     <h4 class=" text-gray-300 font-normal " th:text=" ${usuario.rol.nombre}"></h4>
                 </div>
 
-                <a th:href="'/usuarios/'+ ${usuario.id}+'?action=edit'" class=" hidden group-hover:inline-block"><span
+                <a th:href="'/usuarios/' + ${usuario.id} + '?action=edit'" class=" hidden group-hover:inline-block"><span
                           class="material-symbols-outlined transition-all duration-700 block hover:text-gray-200 p-3 "
                           style="font-size: 2rem">
                         edit
@@ -99,7 +99,7 @@
                     </span>
                     <select required th:field="${nuevoUsuario.rol}" type="number"
                             class=" text-gray-300 border-none outline-none group-hover:bg-blue-900 transition
-                                            duration-700 bg-blue-950 font-normal w-16 placeholder:text-white flex-shrink-0" id="">
+                                            duration-700 bg-blue-950 font-normal w-16 placeholder:text-white flex-shrink-0" >
                         <option value="Rol" selected disabled>Rol</option>
                         <option th:each="rol:${roles}" th:text="${rol.nombre}" th:value="${rol.id}">Rol</option>
                     </select>
@@ -140,12 +140,12 @@
                     <span>
                         -
                     </span>
-                    <select required th:field="*{rol.nombre}" type="number"
-                            class=" text-gray-300 border-none outline-none group-hover:bg-blue-900 transition
-                                                            duration-700 bg-blue-950 font-normal w-16 placeholder:text-white flex-shrink-0" id="">
-                        <option value="Rol" selected disabled>Rol</option>
-                        <option th:each="rol:${roles}" th:text="${rol.nombre}" th:value="${rol.nombre}">Rol</option>
+                    <select required th:field="*{rol.id}" type="number"
+                            class="text-gray-300 border-none outline-none group-hover:bg-blue-900 transition duration-700 bg-blue-950 font-normal w-16 placeholder:text-white flex-shrink-0" id="">
+                        <option value="" selected disabled>Rol</option>
+                        <option th:each="rol : ${roles}" th:value="${rol.id}" th:text="${rol.nombre}"></option>
                     </select>
+
                 </div>
                 <div class="flex flex-nowrap justify-start mt-2 mr-5  ">
                     <input required th:field="*{password}" type="text"
