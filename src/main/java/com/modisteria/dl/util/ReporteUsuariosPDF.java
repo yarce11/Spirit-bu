@@ -21,6 +21,7 @@ import com.modisteria.dl.model.Usuario;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+//Siempre debemos indicar que este archivo es un componente de Spring boot con la siguiente anotación
 @Component("usuarios")
 public class ReporteUsuariosPDF extends AbstractPdfView {
 
@@ -28,10 +29,12 @@ public class ReporteUsuariosPDF extends AbstractPdfView {
 	protected void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 	
+		//No generar advertencias
 		@SuppressWarnings("unchecked")
-		List<Usuario> usuarios = (List<Usuario>) model.get("citas");
+		//Variable usuarios de tipo lista con objetos de tipo usuario, el get trae un objeto usuario que es la lista de todos los usuarios
+		List<Usuario> usuarios = (List<Usuario>) model.get("usuario");
 		
-		//Fuentes, tamaños y colores para cada sección
+		//Fuentes y tamaños para cada sección
 		Font fuenteTitulo = FontFactory.getFont(FontFactory.HELVETICA_BOLD,14);
 		Font fuenteTituloColumnas = FontFactory.getFont(FontFactory.HELVETICA_BOLD,14);
 		Font fuenteDatosCeldas = FontFactory.getFont(FontFactory.HELVETICA,14);
@@ -42,7 +45,7 @@ public class ReporteUsuariosPDF extends AbstractPdfView {
 		PdfPCell celda = null;
 		
 		//Tabla para el título del pdf
-		PdfPTable tablaTitulo = new PdfPTable(1);
+		PdfPTable tablaTitulo = new PdfPTable(1); //Num columnas
 		
 		celda = new PdfPCell(new Phrase("LISTADO GENERAL DE USUARIOS", fuenteTitulo));
 		celda.setBorder(0);

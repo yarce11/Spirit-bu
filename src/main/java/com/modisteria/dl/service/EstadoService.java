@@ -3,8 +3,6 @@ package com.modisteria.dl.service;
 import com.modisteria.dl.model.Estado;
 import com.modisteria.dl.repositorio.EstadoRepositorio;
 
-import jakarta.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +32,7 @@ public class EstadoService {
     public Estado obtenerEstadoPrePorid(int estadoId) {
         return (Estado) data.findById(estadoId).orElse(null);
     }
+    
     public List<Estado> EstadosDisponibles() {
         return data.findAll();
     }
@@ -45,14 +44,6 @@ public class EstadoService {
 	public void delete(int id) {
 		data.deleteById(id);
 	}
-	
-	/*public Estado listarId(int id) {
-		return data.findById(id).get();
-	}
-
-	public Estado actualizar(Estado estados) {
-        return data.save(estados);
-    }*/
 
 
 }
