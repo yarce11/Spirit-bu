@@ -62,68 +62,68 @@ public class CitaController {
                     model.addAttribute("icon", icon);
                     model.addAttribute("titulo", titulo);
                     model.addAttribute("mensaje", mensaje);
-                } else {
-                    LocalDateTime dias = fechaActual.plusDays(3);
-                    if (fecha.isBefore(dias)){
+                }else {
+                    if (fecha.isBefore(fechaActual)) {
                         String icon = "error";
                         String titulo = "Cita cancelada";
-                        String mensaje = "¡Debes de pedir tu cita con minimo 3 días de anticipación!";
+                        String mensaje = "¡La fecha y hora que indicaste ya pasaron!";
                         model.addAttribute("icon", icon);
                         model.addAttribute("titulo", titulo);
                         model.addAttribute("mensaje", mensaje);
                     }else{
-                        if (fecha.isBefore(fechaActual)) {
+                        List<Citas> citasExist = service.listar();
+                        LocalDateTime minima = fecha.minusHours(2);
+                        LocalDateTime maxima = fecha.plusHours(2);
+
+                        boolean conflicto = citasExist.stream().anyMatch(cita -> (cita.getFecha().isAfter(minima) && cita.getFecha().isBefore(maxima)));
+                        if (conflicto) {
                             String icon = "error";
                             String titulo = "Cita cancelada";
-                            String mensaje = "¡La fecha y hora que indicaste ya pasaron!";
+                            String mensaje = "¡La hora para la que tratas de registrar tu cita se encuentra en el intervalo de tiempo de una cita que ya fue agendada, intenta con otra hora!";
                             model.addAttribute("icon", icon);
                             model.addAttribute("titulo", titulo);
                             model.addAttribute("mensaje", mensaje);
-                        } else {
-                            List<Citas> citasExist = service.listar();
-                            LocalDateTime minima = fecha.minusHours(2);
-                            LocalDateTime maxima = fecha.plusHours(2);
-
-                            boolean conflicto = citasExist.stream().anyMatch(cita -> (cita.getFecha().isAfter(minima) && cita.getFecha().isBefore(maxima)));
-                            if (conflicto) {
-                                String icon = "error";
-                                String titulo = "Cita cancelada";
-                                String mensaje = "¡La hora para la que tratas de registrar tu cita se encuentra en el intervalo de tiempo de una cita que ya fue agendada, intenta con otra hora!";
-                                model.addAttribute("icon", icon);
-                                model.addAttribute("titulo", titulo);
-                                model.addAttribute("mensaje", mensaje);
-                            } else {
-                                DayOfWeek dia_semana = fecha.getDayOfWeek();
-                                int dia = dia_semana.getValue();
-                                switch (dia) {
-                                    case 6, 7:
-                                        String icon = "error";
-                                        String titulo = "Cita cancelada";
-                                        String mensaje = "¡Solo se atiende de lunes a viernes!";
-                                        model.addAttribute("icon", icon);
-                                        model.addAttribute("titulo", titulo);
-                                        model.addAttribute("mensaje", mensaje);
-                                        return "modalesCita";
-                                    default:
-                                        int hora = fecha.getHour();
-                                        if (hora >= 8 && hora <= 17) {
-                                            service.guardar(C);
-                                            return "redirect:/vista";
-                                        } else {
+                        }else{
+                            DayOfWeek dia_semana = fecha.getDayOfWeek();
+                            int dia = dia_semana.getValue();
+                            switch (dia) {
+                                case 6, 7:
+                                    String icon = "error";
+                                    String titulo = "Cita cancelada";
+                                    String mensaje = "¡Solo se atiende de lunes a viernes!";
+                                    model.addAttribute("icon", icon);
+                                    model.addAttribute("titulo", titulo);
+                                    model.addAttribute("mensaje", mensaje);
+                                    return "modalesCita";
+                                default:
+                                    int hora = fecha.getHour();
+                                    if (hora >= 8 && hora <= 17) {
+                                        LocalDateTime dias = fechaActual.plusDays(3);
+                                        if (fecha.isBefore(dias)) {
                                             String icono = "error";
                                             String titulos = "Cita cancelada";
-                                            String mensajes = "¡Nuestro horario de atención es de 8 a.m. hasta las 5 p.m!";
+                                            String mensajes = "¡Debes de pedir tu cita con minimo 3 días de anticipación!";
                                             model.addAttribute("icon", icono);
                                             model.addAttribute("titulo", titulos);
                                             model.addAttribute("mensaje", mensajes);
-                                            return "modalesCita";
+                                        }else{
+                                            service.guardar(C);
+                                            return "redirect:/vista";
                                         }
-                                }
+                                    }else{
+                                        String icono = "error";
+                                        String titulos = "Cita cancelada";
+                                        String mensajes = "¡Nuestro horario de atención es de 8 a.m. hasta las 5 p.m!";
+                                        model.addAttribute("icon", icono);
+                                        model.addAttribute("titulo", titulos);
+                                        model.addAttribute("mensaje", mensajes);
+                                        return "modalesCita";
+                                    }
                             }
                         }
                     }
                 }
-            } else {
+            }else{
                 String icon = "error";
                 String titulo = "Cita cancelada";
                 String mensaje = "¡Ya hay una cita agendada para esta fecha y hora, intenta de nuevo!";

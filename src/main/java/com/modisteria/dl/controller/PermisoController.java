@@ -31,11 +31,7 @@ public class PermisoController {
 	
 
 	
-	@PostMapping("/guardarPermiso")
-	public String guardar(@Valid Permiso p, Model model) {
-		service.guardar(p);
-		return "redirect:/listarPermisos";
-	}
+
 
 	
 	@GetMapping("/listarPermisos/{id}")
@@ -53,9 +49,13 @@ public class PermisoController {
 		model.addAttribute("borrarPermiso", borrarPermiso);
 		return "permisos";
     }
-	
+	@PostMapping("/guardarPermiso")
+	public String guardar(@Valid Permiso p, Model model) {
+		service.guardar(p);
+		return "redirect:/listarPermisos";
+	}
 	@GetMapping("/eliminarPermiso/{id}")
-	public String eliminar(@PathVariable int id, Model model) {
+	public String eliminar(@PathVariable int id) {
 		service.delete(id);
 		return "redirect:/listarPermisos";
 	}

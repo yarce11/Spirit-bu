@@ -72,7 +72,7 @@
                       style="font-size: 3rem;" class="material-symbols-outlined">
                     close
                 </span></a>
-            <form method="post" th:action="@{/guardarEstado}" th:object="${estado}"
+            <form method="post" th:action="@{/guardarEstado}" th:object="${estadoE}"
                   class=" bg-blue-950 shadow-blue-800 group shadow-lg mb-5  w-[21rem] h-40 rounded-lg p-2 flex flex-col flex-nowrap justify-center items-center group hover:bg-blue-900 transition duration-700 absolute ">
                 <input type="hidden" th:field="*{id}" />
                 <input th:field="*{nombre_estado}" type="text"
@@ -93,7 +93,7 @@
                 <span class="material-symbols-outlined mt-6 block shadow-inner p-3" style="font-size: 5rem">
                     delete
                 </span>
-                <h2 class="font-bold text-2xl mt-6">¿Deseas eliminar la cita?</h2>
+                <h2 class="font-bold text-2xl mt-6">¿Deseas eliminar el estado?</h2>
                 <div class="mx-auto mt-6 flex flex-nowrap justify-center">
                     <a href="/listarEstados"
                        class="transition duration-300 delay-75 ml-6 text-center bg-red-500 p-3 h-12 rounded-md hover:scale-105 hover:shadow-md inline-block hover:shadow-red-800 w-28 hover:bg-red-600 group">
@@ -102,7 +102,7 @@
                             <span class="material-symbols-outlined group-hover:block">
                                 close
                             </span>
-                        </span></a><a th:href="@{/eliminarEstado/}+${estado.id}" id="enviar"
+                        </span></a><a th:href="@{/eliminarEstado/}+${estadoE.id}" id="enviar"
                        class="ml-10 transition duration-300 delay-75 text-center bg-green-600 p-3 rounded-md hover:scale-105 hover:shadow-md inline-block hover:shadow-green-800 w-28 h-12 hover:bg-green-500 group"><span
                               class="font-semibold group-hover:font-bold group-hover:hidden">Aceptar</span>
                         <span class="group-hover:block hidden">

@@ -39,7 +39,7 @@ public class EstadoController {
 		model.addAttribute("estado", new Estado());
 
 		Optional<Estado> estadoE = service.listarId(id);
-		model.addAttribute("estado", estadoE.get());
+		model.addAttribute("estadoE", estadoE.get());
 		
 		boolean borrarEstado = ("borrar".equals(action));
 		boolean editEstado = ("edit".equals(action));

@@ -27,6 +27,9 @@ public class UsuarioService {
         usuario.setRol(primerRol); // Asigna el primer rol
         usuarioRepositorio.save(usuario);
     }
+    public void delete(Long id) {
+        usuarioRepositorio.deleteById(id);
+    }
 
 
 }

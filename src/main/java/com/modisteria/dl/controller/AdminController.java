@@ -59,8 +59,8 @@ public class AdminController {
         boolean editCita = ("edit".equals(action));
         boolean borrarCita = ("borrar".equals(action));
 
-        model.addAttribute("editcita", editCita);
-        model.addAttribute("borrarCita", borrarCita);
+        model.addAttribute("editUsuario", editCita);
+        model.addAttribute("borrarUsuario", borrarCita);
         return "usuarios";
     }
 
@@ -82,9 +82,9 @@ public class AdminController {
         usuarioRepositorio.save(usuario);
         return "redirect:/usuarios/";
     }
-    @PostMapping("/eliminarUsuario")
-    public String eliminarUsuario(@RequestParam("id") Long id) {
-        usuarioRepositorio.deleteById(id);
+    @GetMapping("/eliminarUsuario/{id}")
+    public String eliminarUsuario(@PathVariable Long id) {
+        usuarioService.delete(id);
         return "redirect:/usuarios/";
     }
 
